@@ -24,11 +24,14 @@ A timeline with expected completion dates of parts of the project. (CHANGE THIS!
 
 Note: this is modified to not be a printed copy, so some thigs may reference "printed" but that is outdated.
 
-    PERIOD 3/4/5
-    Group members names
-    Group Name (be creative and lean into it!)
-    Brief Project description (1 paragraph summary)
-    Expanded Description:
+    PERIOD 3
+    Group members names: Leonardo Benitez and Vanna Lei
+    Group Name (be creative and lean into it!) BlockBlastBananas
+    Brief Project description (1 paragraph summary):
+      Our group is going to recreate the amazing Block Blast Game. There will be 2 different game modes: one that starts with an empty board and another one with random pieces
+      filled in. There were be three random pieces generated for you to fit in the board. You will use arrow keys (or drag and drop if we have time) to move the pieces onto the board.
+      The row gets cleared and you get points after the row is filled with blocks, just like the game. The score will be placed on the top and it will also account for combos.
+
         Critical features (Minimum Viable Product) - What you want to have after 1.5 weeks.
         Diagrams can be useful (but will expand this to an extra page if you use them) when your project isn't EXTREMELY well known (e.g. chess, tetris) but you need to annoatate them to explain what you care about.
         Nice to have features - What you would want to have by the end
