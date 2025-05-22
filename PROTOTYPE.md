@@ -20,6 +20,8 @@
 
 UML Diagram (see below) that shows your class heirachy.
 
+![alt text](https://github.com/Stuycs-K/finalprojectapcs-3-benitez-leonardo-lei-vanna/blob/main/UMLDiagram.png "UML Diagram")
+
 Outline of how methods will fit together.
 
 Note: Depending on the style of project you may have more diagram and less outline or vice versa)
