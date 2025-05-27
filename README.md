@@ -5,5 +5,6 @@ lorem ipsum.
 
 # Intended usage:
 
-A description as to how the project will be used (describe the user interface). (CHANGE THIS!!!!!)
+This project will be used to help students have fun. The moving blocks and rows clearing will be stimulating enough for students to enjoy themselves!
+  
   
