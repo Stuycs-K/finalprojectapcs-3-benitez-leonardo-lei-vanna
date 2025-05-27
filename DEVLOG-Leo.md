@@ -25,6 +25,6 @@ worked on the UML diagram using an editor called smart draw.
 
 created a new UML diagram as we spent time rethinking our class structure.
 
-### 2025-05-20 - Brief description
+### 2025-05-27 - Brief description
 
-Expanded description including how much time was spent on task.
+working on board methods - branches gave me a big headache
