@@ -28,3 +28,7 @@ created a new UML diagram as we spent time rethinking our class structure.
 ### 2025-05-27 - Brief description
 
 working on board methods - branches gave me a big headache
+
+### 2025-05-28 - Brief description
+
+course discussion then looking at graphics final projects, will do more work at home
