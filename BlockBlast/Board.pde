@@ -96,4 +96,17 @@ public class Board {
       }
     }
   }
+  
+  boolean canPlaceAny(Piece[] pieces) {//for game over scenario
+    for (Piece piece : pieces) {
+      for (int r = 0; r <= rows - piece.shape.length; r++) {
+        for (int c = 0; c <= cols - piece.shape[0].length; c++) {
+          if (canPlace(piece, r, c)) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
 }
