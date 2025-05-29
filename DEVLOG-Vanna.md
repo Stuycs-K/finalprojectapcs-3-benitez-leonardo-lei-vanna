@@ -15,3 +15,9 @@ Wrote what our MVP would be like in 1.5 weeks and also what features we would li
 
 ### 2025-05-22 - Made UML diagram
 Discussed and worked with Leo on his laptop to create a UML diagram. Spent 20+ minutes
+<<<<<<< HEAD
+=======
+
+### 2025-05-28 - Worked on score
+Wrote thing to change score if rows are cleared. Not finished and needs to keep track of which rows cleared.
+>>>>>>> vanna
