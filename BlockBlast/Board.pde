@@ -18,6 +18,10 @@ public class Board {
         if (piece.shape[r][c] == 1) {
           int boardRow = startRow + r;
           int boardCol = startCol + c;
+          if (boardRow < 0 || boardRow >= rows || boardCol < 0 || boardCol >= cols)
+            return false;
+          if (gameBoard[boardRow][boardCol] == 1)
+            return false;
         }
       }
     }
