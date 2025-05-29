@@ -43,7 +43,19 @@ public class Board {
   }
 
   public void clearLines() {
-    return;
+    boolean[] fullRows = new boolean[rows];
+    boolean[] fullCols = new boolean[cols];
+
+    for (int r = 0; r < rows; r++) {
+      boolean full = true;
+      for (int c = 0; c < cols; c++) {
+        if (gameBoard[r][c] == 0) {
+          full = false;
+          break;
+        }
+      }
+      fullRows[r] = full;
+    }
   }
 
   public void drawBoard() {
