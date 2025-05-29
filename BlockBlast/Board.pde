@@ -14,7 +14,7 @@ public class Board {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
         if (piece.shape()[r][c] == 1) {
-          gameBoard[startRow][startCol]=1;
+          gameBoard[startRow+r][startCol+c]=1;
         }
       }
     }
