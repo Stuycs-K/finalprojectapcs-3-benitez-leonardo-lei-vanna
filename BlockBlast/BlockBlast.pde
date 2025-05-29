@@ -1,14 +1,15 @@
+
 private int score;
 private int combos;
 private int[] pieceLineUp;
 static String scoreText;
 private Board gameboard;
 
-void setup(){
+public void setup(){
   size(920,920);
   pieceLineUp = new int[3];
 }
-void draw(){
+public void draw(){
   background(255);
   fill(255);
   rect(380, 2, 200, 40);
@@ -17,7 +18,7 @@ void draw(){
   text("Score: " + score, 395, 26);
 }
 
-void scoreRow(){
+public void scoreRow(){
   for(int row = 0; row<8; row++){
     boolean full = true;
     for(int col = 0; col<8; col++){
@@ -34,7 +35,7 @@ void scoreRow(){
   }
 }
 
-void scoreCol(){
+public void scoreCol(){
   for(int col = 0; col<8; row++){
     boolean full = true;
     for(int row = 0; row<8; row++){
@@ -51,6 +52,6 @@ void scoreCol(){
   }
 }
 
-void combos(){
+public void combos(){
   combos = 0;
 }
