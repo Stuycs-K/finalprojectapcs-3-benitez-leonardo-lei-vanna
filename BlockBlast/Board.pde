@@ -15,6 +15,9 @@ public class Board {
   public boolean canPlace(Piece piece, int startRow, int startCol) {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
+        if (piece.shape[r][c] == 1) {
+          int boardRow = startRow + r;
+          int boardCol = startCol + c;
         }
       }
     }
