@@ -56,6 +56,32 @@ public class Board {
       }
       fullRows[r] = full;
     }
+    for (int c = 0; c < cols; c++) {
+      boolean full = true;
+      for (int r = 0; r < rows; r++) {
+        if (gameBoard[r][c] == 0) {
+          full = false;
+          break;
+        }
+      }
+      fullCols[c] = full;
+    }
+
+    for (int r = 0; r < rows; r++) {
+      if (fullRows[r]) {
+        for (int c = 0; c < cols; c++) {
+          gameBoard[r][c] = 0;
+        }
+      }
+    }
+
+    for (int c = 0; c < cols; c++) {
+      if (fullCols[c]) {
+        for (int r = 0; r < rows; r++) {
+          gameBoard[r][c] = 0;
+        }
+      }
+    }
   }
 
   public void drawBoard() {
