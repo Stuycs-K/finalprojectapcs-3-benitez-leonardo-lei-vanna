@@ -16,29 +16,29 @@ void draw(){
   textSize(20);
   text("Score: " + score, 395, 26);
 }
-void score(){
-  score = 0;
-  boolean full = false;
+
+void scoreRow(){
   int[][] board = new int[8][8];
   for(int row = 0; row<8; row++){
+    boolean full = true;
     for(int col = 0; col<8; col++){
       if(board[row][col] == 0){
         full=false;
       }
     }
-    full=true;
     if(full){
-      score+=80;
-      for(int r = 0; r<8; r++){
-        for(int c = 0; c<8; c++){
-          board[r][c] = 0;
-        }
+      for(int i = 0; i<8; i++){
+        board[row][i] = 0;
+        score += 80;
       }
-      
     }
   }
-  
 }
+
+void scoreCol(){
+
+}
+
 void combos(){
   combos = 0;
 }
