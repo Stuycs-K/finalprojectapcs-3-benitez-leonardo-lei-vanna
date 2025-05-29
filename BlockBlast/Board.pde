@@ -21,7 +21,7 @@ public class Board {
     clearLines();
     return true;
   }
-  
+
   public boolean canPlace(Piece piece, int startRow, int startCol) {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
@@ -87,7 +87,12 @@ public class Board {
   public void drawBoard() {
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < cols; c++) {
-
+        if (gameBoard[r][c] == 1)
+          fill(100, 200, 250);
+        else
+          fill(220);
+        stroke(0);
+        rect(c*cellSize, r*cellSize, cellSize, cellSize);
       }
     }
   }
