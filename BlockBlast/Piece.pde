@@ -9,17 +9,27 @@ public class Piece{
     shape = generateShape(type);
   }
   
-  public int[][] shape(){
+  public int[][] shape() {
     return shape;
   }
   
-  private int[] randomColor(){
+  public int[] colorID() {
+    return design;
   }
   
-  
-  public String type(){
+  public String type() {
     return identifier;
   }
+  
+  private int[] randomColor() {
+    return new int[] {
+      (int)random(80, 255),
+      (int)random(80, 255),
+      (int)random(80, 255)
+    };
+  }
+  
+  
   
   
  
