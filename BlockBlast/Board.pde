@@ -2,14 +2,15 @@ public class Board {
   private int[][] gameBoard;
   private int rows = 8;
   private int cols = 8;
-  private int cellSize = 50; // size of each square on screen
+  private int cellSize = 50;
 
   public Board() {
     gameBoard = new int[rows][cols];
   }
 
-  public void placePiece() {
-    return;
+  boolean placePiece(Piece piece, int startRow, int startCol) {
+    clearLines();
+    return true;
   }
   
   public boolean canPlace(Piece piece, int startRow, int startCol) {
