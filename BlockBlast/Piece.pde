@@ -1,7 +1,7 @@
 public class Piece{
-  private int[] design;        // RGB color
-  private int[][] shape;       // 5x5 shape matrix
-  private String identifier;   // piece type
+  private int[] design; // RGB color
+  private int[][] shape; // 5x5 shape matrix
+  private String identifier; // piece type
   
   public Piece(String type) {
     identifier = type;
@@ -63,5 +63,13 @@ public class Piece{
           { {0,1,0}, {0,1,0}, {1,1,0} }
         };
         return embedShape(lShapes[r]);
-
+        
+      default:
+        // fallback: 2x2 block
+        return embedShape(new int[][] {
+          {1,1},
+          {1,1}
+        });
+    }
+  }
 }
