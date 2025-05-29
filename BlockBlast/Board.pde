@@ -11,6 +11,15 @@ public class Board {
   public void placePiece() {
     return;
   }
+  
+  public boolean canPlace(Piece piece, int startRow, int startCol) {
+    for (int r = 0; r < piece.shape().length; r++) {
+      for (int c = 0; c < piece.shape()[0].length; c++) {
+        }
+      }
+    }
+    return true;
+  }
 
   public void movePiece() {
     return;
