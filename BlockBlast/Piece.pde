@@ -1,7 +1,7 @@
 public class Piece{
-  private int[] design;        // RGB color
-  private int[][] shape;       // 5x5 shape matrix
-  private String identifier;   // piece type
+  private int[] design; // RGB color
+  private int[][] shape; // 5x5 shape matrix
+  private String identifier; // piece type
   
   public Piece(String type) {
     identifier = type;
@@ -40,10 +40,36 @@ public class Piece{
     }
     return result;
   }
-}
   
-  
-  
-  
- 
+  private int[][] generateShape(String type) {
+    int[][] grid = new int[5][5];
+    int r = (int)random(0, 4); // Random rotation index (0–3)
+
+    switch(type) {
+      case "T3x3":
+        int[][][] tShapes = {
+          { {0,1,0}, {1,1,1}, {0,0,0} },
+          { {0,1,0}, {0,1,1}, {0,1,0} },
+          { {0,0,0}, {1,1,1}, {0,1,0} },
+          { {0,1,0}, {1,1,0}, {0,1,0} }
+        };
+        return embedShape(tShapes[r]);
+
+      case "L3x3":
+        int[][][] lShapes = {
+          { {1,0,0}, {1,1,1}, {0,0,0} },
+          { {0,1,1}, {0,1,0}, {0,1,0} },
+          { {0,0,0}, {1,1,1}, {0,0,1} },
+          { {0,1,0}, {0,1,0}, {1,1,0} }
+        };
+        return embedShape(lShapes[r]);
+        
+      default:
+        // fallback: 2x2 block
+        return embedShape(new int[][] {
+          {1,1},
+          {1,1}
+        });
+    }
+  }
 }
