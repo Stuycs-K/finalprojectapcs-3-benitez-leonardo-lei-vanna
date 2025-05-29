@@ -35,7 +35,20 @@ void scoreRow(){
 }
 
 void scoreCol(){
-
+  for(int col = 0; col<8; row++){
+    boolean full = true;
+    for(int row = 0; row<8; row++){
+      if(gameboard[row][col] == 0){
+        full=false;
+      }
+    }
+    if(full){
+      for(int i = 0; i<8; i++){
+        gameboard[i][col] = 0;
+        score += 80;
+      }
+    }
+  }
 }
 
 void combos(){
