@@ -29,6 +29,14 @@ public class Piece{
     };
   }
   
+  private int[][] embedShape(int[][] small) {
+    int[][] result = new int[5][5];
+    int rowOffset = (5 - small.length) / 2;
+    int colOffset = (5 - small[0].length) / 2;
+    
+  }
+}
+  
   
   
   
