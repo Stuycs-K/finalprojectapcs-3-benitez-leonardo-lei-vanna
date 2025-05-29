@@ -31,8 +31,8 @@ public class Piece{
   
   private int[][] embedShape(int[][] small) {
     int[][] result = new int[5][5];
-    int rowOffset = (small.length) / 2;
-    int colOffset = (small[0].length) / 2;
+    int rowOffset = (5 - small.length) / 2;
+    int colOffset = (5 - small[0].length) / 2;
     for (int i = 0; i < small.length; i++) {
       for (int j = 0; j < small[0].length; j++) {
         result[i+rowOffset][j+colOffset] = small[i][j];
