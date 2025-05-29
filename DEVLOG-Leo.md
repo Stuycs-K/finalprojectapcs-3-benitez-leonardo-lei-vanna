@@ -31,3 +31,7 @@ I started working on implementing the Board class, particularly focusing on meth
 ### 2025-05-28 - Board + Piece class development
 
 Today we had a course-wide discussion and reviewed graphics final projects for inspiration. Afterward, I made significant progress on the Board and Piece classes. I worked on finalizing the structure of the Piece class so it supports random generation and rotation of all piece types. I also cleaned up the Board class and reviewed its logic for clearing lines and placing blocks. I embedded all shapes into 5×5 matrices for alignment, added color generation, and made sure our shapes spawn with fixed but randomly chosen orientations. It's starting to feel like a real game engine now.
+
+### 2025-05-29 -
+
+I had to reclone due to issues, trying to get my branch to track remote
