@@ -40,10 +40,28 @@ public class Piece{
     }
     return result;
   }
-}
   
-  
-  
-  
- 
+  private int[][] generateShape(String type) {
+    int[][] grid = new int[5][5];
+    int r = (int)random(0, 4); // Random rotation index (0–3)
+
+    switch(type) {
+      case "T3x3":
+        int[][][] tShapes = {
+          { {0,1,0}, {1,1,1}, {0,0,0} },
+          { {0,1,0}, {0,1,1}, {0,1,0} },
+          { {0,0,0}, {1,1,1}, {0,1,0} },
+          { {0,1,0}, {1,1,0}, {0,1,0} }
+        };
+        return embedShape(tShapes[r]);
+
+      case "L3x3":
+        int[][][] lShapes = {
+          { {1,0,0}, {1,1,1}, {0,0,0} },
+          { {0,1,1}, {0,1,0}, {0,1,0} },
+          { {0,0,0}, {1,1,1}, {0,0,1} },
+          { {0,1,0}, {0,1,0}, {1,1,0} }
+        };
+        return embedShape(lShapes[r]);
+
 }
