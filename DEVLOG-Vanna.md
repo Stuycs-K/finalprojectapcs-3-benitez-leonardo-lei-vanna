@@ -21,3 +21,4 @@ Discussed and worked with Leo on his laptop to create a UML diagram. Spent 20+ m
 ### 2025-05-28 - Worked on score
 Wrote thing to change score if rows are cleared. Not finished and needs to keep track of which rows cleared.
 >>>>>>> vanna
+Fixed name of classes and wrote get method to allow access to board in another class. 
