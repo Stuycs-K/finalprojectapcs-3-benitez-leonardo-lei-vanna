@@ -96,7 +96,7 @@ class Board {
         else
           fill(220);
         stroke(0);
-        rect(c*cellSize, r*cellSize, cellSize, cellSize);
+        rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
       }
     }
   }
