@@ -11,6 +11,9 @@
     pieceLineUp = new int[3];
     gameBoard = new Board();
   }
+  
+  Piece piece = new Piece("T3x3");
+
   public void draw(){
     background(255);
     fill(255);
@@ -19,7 +22,6 @@
     textSize(20);
     text("Score: " + score, 395, 40);
     //gameBoard.drawBoard(x,y);
-    Piece piece = new Piece("L2x2");
     piece.drawPiece(x,y);
   }
   
