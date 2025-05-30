@@ -64,6 +64,25 @@ class Piece{
         };
         return embedShape(lShapes[r]);
         
+      case "L2x3":
+        int[][][] l23 = {
+          { {1,0}, {1,0}, {1,1} },
+          { {0,0,1}, {1,1,1} },
+          { {1,1}, {0,1}, {0,1} },
+          { {1,1,1}, {1,0,0} }
+        };
+        return embedShape(l23[r]);
+
+      case "L2x2":
+        int[][][] l22 = {
+          { {1,0}, {1,1} },
+          { {1,1}, {0,1} },
+          { {1,1}, {1,0} },
+          { {0,1}, {1,1} }
+        };
+        return embedShape(l22[r]);
+
+        
       default:
         // fallback: 2x2 block
         return embedShape(new int[][] {
