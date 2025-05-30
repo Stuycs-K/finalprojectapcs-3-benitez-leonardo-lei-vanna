@@ -12,10 +12,11 @@
   public void draw(){
     background(255);
     fill(255);
-    rect(380, 2, 200, 40);
+    rect(380, 15, 200, 40);
     fill(0);
     textSize(20);
-    text("Score: " + score, 395, 26);
+    text("Score: " + score, 395, 40);
+    gameBoard.drawBoard();
   }
   
   public void scoreRow(){
