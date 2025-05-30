@@ -43,7 +43,7 @@ class Piece{
   
   private int[][] generateShape(String type) {
     int[][] grid = new int[5][5];
-    int r = (int)random(0, 4); // Random rotation index (0–3)
+    int r = (int)random(0, 4); // Random rotation
 
     switch(type) {
       case "T3x3":

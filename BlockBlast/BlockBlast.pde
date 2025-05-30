@@ -3,6 +3,8 @@
   private int[] pieceLineUp;
   static String scoreText;
   private Board gameBoard;
+  private int x;
+  private int y;
   
   public void setup(){
     size(920,920);
@@ -16,7 +18,7 @@
     fill(0);
     textSize(20);
     text("Score: " + score, 395, 40);
-    gameBoard.drawBoard();
+    gameBoard.drawBoard(x,y);
   }
   
   public void scoreRow(){
@@ -34,6 +36,11 @@
         }
       }
     }
+  }
+  
+  void mouseDragged(){
+    x=mouseX;
+    y=mouseY;
   }
   
   public void scoreCol(){

@@ -88,7 +88,7 @@ class Board {
     }
   }
 
-  public void drawBoard() {
+  public void drawBoard(int x, int y) {
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < cols; c++) {
         if (gameBoard[r][c] == 1)
@@ -96,7 +96,9 @@ class Board {
         else
           fill(220);
         stroke(0);
-        rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
+        //rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
+        rect(c*cellSize+x-cellSize*4, r*cellSize+y-cellSize*4, cellSize, cellSize);
+
       }
     }
   }
