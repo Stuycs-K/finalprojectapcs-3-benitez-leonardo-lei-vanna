@@ -36,7 +36,7 @@
   }
   
   public void scoreCol(){
-    for(int col = 0; col<8; row++){
+    for(int col = 0; col<8; col++){
       boolean full = true;
       for(int row = 0; row<8; row++){
         if(gameBoard.getBoard()[row][col] == 0){
