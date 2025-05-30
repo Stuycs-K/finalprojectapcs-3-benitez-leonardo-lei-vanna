@@ -2,6 +2,8 @@ class Piece{
   private int[] design; // RGB color
   private int[][] shape; // 5x5 shape matrix
   private String identifier; // piece type
+  private int cellSize = 50;
+
   
   public Piece(String type) {
     identifier = type;
@@ -40,6 +42,20 @@ class Piece{
     }
     return result;
   }
+  
+  public void drawPiece(int x, int y) {
+    for (int r = 0; r < shape.length; r++) {
+      for (int c = 0; c < shape[0].length; c++) {
+        if (shape[r][c] == 1)
+          fill(100, 200, 250);
+        stroke(0);
+        //rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
+        rect(c*cellSize+x-cellSize*4, r*cellSize+y-cellSize*4, cellSize, cellSize);
+
+      }
+    }
+  }
+  
   
   private int[][] generateShape(String type) {
     int[][] grid = new int[5][5];

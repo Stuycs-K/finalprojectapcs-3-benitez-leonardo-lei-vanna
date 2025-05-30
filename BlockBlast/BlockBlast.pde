@@ -3,8 +3,8 @@
   private int[] pieceLineUp;
   static String scoreText;
   private Board gameBoard;
-  private int x;
-  private int y;
+  private int x = 460;
+  private int y = 275;
   
   public void setup(){
     size(920,920);
@@ -18,7 +18,9 @@
     fill(0);
     textSize(20);
     text("Score: " + score, 395, 40);
-    gameBoard.drawBoard(x,y);
+    //gameBoard.drawBoard(x,y);
+    Piece piece = new Piece("L2x2");
+    piece.drawPiece(x,y);
   }
   
   public void scoreRow(){
