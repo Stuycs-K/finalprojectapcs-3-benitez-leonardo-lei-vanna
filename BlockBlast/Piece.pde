@@ -1,4 +1,4 @@
-public class Piece{
+class Piece{
   private int[] design; // RGB color
   private int[][] shape; // 5x5 shape matrix
   private String identifier; // piece type

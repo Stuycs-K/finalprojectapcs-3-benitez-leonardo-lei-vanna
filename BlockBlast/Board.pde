@@ -1,4 +1,4 @@
-public class Board {
+class Board {
   private int[][] gameBoard;
   private int rows = 8;
   private int cols = 8;
@@ -6,6 +6,10 @@ public class Board {
 
   public Board() {
     gameBoard = new int[rows][cols];
+  }
+  
+  public int[][] getBoard(){
+    return gameBoard;
   }
 
   boolean placePiece(Piece piece, int startRow, int startCol) {
