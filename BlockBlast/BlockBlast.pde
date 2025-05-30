@@ -1,4 +1,3 @@
-class BlockBlaster{ 
   private int score;
   private int combos;
   private int[] pieceLineUp;
@@ -56,4 +55,3 @@ class BlockBlaster{
   public void combos(){
     combos = 0;
   }
- }
