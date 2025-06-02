@@ -1,15 +1,17 @@
 private int score;
 private int combos;
-private int[] pieceLineUp;
+private Piece[] pieceLineUp;
 static String scoreText;
 private Board gameBoard;
 private int x = 460;
 private int y = 275;
 public Piece piece;
+private int select = 0;
   
 public void setup(){
   size(920,920);//MAGIC NUMBERS
-  pieceLineUp=new int[3];
+  pieceLineUp = new Piece[3];
+  newLineUp();
   gameBoard=new Board();
   piece=new Piece("T3x3");
 }
@@ -24,6 +26,17 @@ public void draw(){
   text("Score: "+score,395,40);
   gameBoard.drawBoard();
   piece.drawPiece(x, y);
+  for(int i = 0; i<3; i++){
+    pieceLineUp[i].drawPiece(250 + i*150, 600);
+  }
+}
+
+void newLineUp(){
+  String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
+  for(int i = 0; i < 3; i++){
+    pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
+  }
+  select = 0;
 }
   
 public void scoreRow() {
