@@ -21,6 +21,13 @@ public void setup(){
   
 
 public void draw(){
+  if (keyPressed) {
+    if (key == 'w' || key == 'W')
+      backgroundColor+=10;
+    if (key == 's' || key == 'S')
+      backgroundColor-=10;
+    fill(255);
+  }
   background(backgroundColor);
   fill(255);
   rect(380,15,170,40);
@@ -53,7 +60,7 @@ void newLineUp(){
 public void scoreRow() {
   for(int row = 0; row < 8; row++) {
     boolean full = true;
-    for(int col = 0; col < 8; col++) {//MAGIC NUMBERS
+    for(int col = 0; col < 8; col++) {
       if(gameBoard.getBoard()[row][col]==0) {
         full = false;
       }
