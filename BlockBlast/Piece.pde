@@ -47,19 +47,18 @@ class Piece{
     for (int r = 0; r < shape.length; r++) {
       for (int c = 0; c < shape[0].length; c++) {
         if (shape[r][c] == 1)
-          fill(100, 200, 250);
+          fill(design[0], design[1], design[2]);
+        else
+          fill(255);
         stroke(0);
-        //rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
-        rect(c*cellSize+x, r*cellSize+y, cellSize, cellSize);
-
+        rect(c * cellSize + x - cellSize * 2, r * cellSize + y - cellSize * 2, cellSize, cellSize);
       }
     }
   }
   
   
   private int[][] generateShape(String type) {
-    int[][] grid = new int[5][5];
-    int r = (int)random(0, 4); // Random rotation
+    int r = (int)random(0, 4);
 
     switch(type) {
       case "T3x3":
@@ -98,9 +97,7 @@ class Piece{
         };
         return embedShape(l22[r]);
 
-        
       default:
-        // fallback: 2x2 block
         return embedShape(new int[][] {
           {1,1},
           {1,1}
