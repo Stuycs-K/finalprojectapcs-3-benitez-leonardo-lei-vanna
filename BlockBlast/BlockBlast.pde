@@ -9,7 +9,7 @@ private int x = 460;
 private int y = 275;
 public Piece piece;
 private int select = -1;
-private int backgroundColor = 333;
+private int[] backgroundColor = {0,0,0};
   
 public void setup(){
   size(920,920);
@@ -22,13 +22,21 @@ public void setup(){
 
 public void draw(){
   if (keyPressed) {
-    if (key == 'w' || key == 'W')
-      backgroundColor+=10;
-    if (key == 's' || key == 'S')
-      backgroundColor-=10;
+    if ((key == 'w' || key == 'W')&&backgroundColor[0]<246)
+      backgroundColor[0]+=10;
+    if ((key == 's' || key == 'S')&&backgroundColor[0]>9)
+      backgroundColor[0]-=10;
+    if ((key == 'e' || key == 'E')&&backgroundColor[1]<246)
+      backgroundColor[1]+=10;
+    if ((key == 'd' || key == 'D')&&backgroundColor[1]>9)
+      backgroundColor[1]-=10;
+    if ((key == 'r' || key == 'R')&&backgroundColor[2]<246)
+      backgroundColor[2]+=10;
+    if ((key == 'f' || key == 'F')&&backgroundColor[2]>9)
+      backgroundColor[2]-=10;
     fill(255);
   }
-  background(backgroundColor);
+  background(backgroundColor[0], backgroundColor[1], backgroundColor[2]);
   fill(255);
   rect(380,15,170,40);
   fill(0);
