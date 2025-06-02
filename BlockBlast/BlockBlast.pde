@@ -2,30 +2,31 @@ private int score;
 private int combos;
 private int numPlaced;
 private Piece[] pieceLineUp;
+private int lineUpSize = 3;
 static String scoreText;
 private Board gameBoard;
 private int x = 460;
 private int y = 275;
 public Piece piece;
 private int select = -1;
+private int backgroundColor = 333;
   
 public void setup(){
-  size(920,920);//MAGIC NUMBERS
-  pieceLineUp = new Piece[3];
+  size(920,920);
+  pieceLineUp = new Piece[lineUpSize];
   newLineUp();
   gameBoard=new Board();
-  //piece=new Piece("T3x3");
   piece = null;
 }
   
 
 public void draw(){
-  background(255);
+  background(backgroundColor);
   fill(255);
-  rect(380,15,200,40);
+  rect(380,15,170,40);
   fill(0);
   textSize(20);
-  text("Score: "+score,395,40);
+  text("Score: "+score,430,40);
   gameBoard.drawBoard();
   if(piece != null){
     piece.drawPiece(x, y);
