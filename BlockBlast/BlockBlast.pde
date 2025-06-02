@@ -42,28 +42,29 @@ public void scoreRow(){
     }
   }
 }
+
+public void scoreCol(){
+  for(int col = 0; col<8; col++){
+    boolean full = true;
+    for(int row = 0; row<8; row++){
+      if(gameBoard.getBoard()[row][col] == 0){
+        full=false;
+      }
+    }
+    if(full){
+      for(int i = 0; i<8; i++){
+        gameBoard.getBoard()[i][col] = 0;
+        score += 80;
+      }
+    }
+  }
+}
   
   void mouseDragged(){
     x=mouseX;
     y=mouseY;
   }
   
-  public void scoreCol(){
-    for(int col = 0; col<8; col++){
-      boolean full = true;
-      for(int row = 0; row<8; row++){
-        if(gameBoard.getBoard()[row][col] == 0){
-          full=false;
-        }
-      }
-      if(full){
-        for(int i = 0; i<8; i++){
-          gameBoard.getBoard()[i][col] = 0;
-          score += 80;
-        }
-      }
-    }
-  }
   
   public void combos(){
     combos = 0;
