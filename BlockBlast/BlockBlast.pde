@@ -22,7 +22,7 @@ public void draw(){
   fill(0);
   textSize(20);
   text("Score: " + score, 395, 40);
-  gameBoard.drawBoard(460, 375);
+  gameBoard.drawBoard();
   piece.drawPiece(x, y);
 }
   
