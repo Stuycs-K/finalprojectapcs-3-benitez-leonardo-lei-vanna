@@ -53,8 +53,8 @@ void mouseReleased(){
   int pieceCenterOffset = 2*gameBoard.cellSize();
   int adjustedX = x-pieceCenterOffset;
   int adjustedY = y-pieceCenterOffset;
-  int boardCol = (adjustedX-250+25)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
-  int boardRow = (adjustedY-175+25)/50;
+  int boardCol = (adjustedX-250)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
+  int boardRow = (adjustedY-175)/50;
   if(gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
