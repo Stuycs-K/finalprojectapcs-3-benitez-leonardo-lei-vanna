@@ -45,16 +45,16 @@ public void scoreRow() {
 
 
 void mouseDragged(){
-  x=mouseX;
-  y=mouseY;
+  x=mouseX+10;
+  y=mouseY+10;
 }
 
 void mouseReleased(){
   int pieceCenterOffset = 2*gameBoard.cellSize();
   int adjustedX = x-pieceCenterOffset;
   int adjustedY = y-pieceCenterOffset;
-  int boardCol = (adjustedX-250)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
-  int boardRow = (adjustedY-175)/50;
+  int boardCol = (adjustedX-250+25)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
+  int boardRow = (adjustedY-175+25)/50;
   if(gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
