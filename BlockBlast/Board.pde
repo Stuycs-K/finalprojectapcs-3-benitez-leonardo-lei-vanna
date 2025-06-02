@@ -11,6 +11,10 @@ class Board {
   public int[][] getBoard(){
     return gameBoard;
   }
+  
+  public int cellSize(){
+    return cellSize;
+  }
 
   boolean placePiece(Piece piece, int startRow, int startCol) {
     if (!canPlace(piece, startRow, startCol))
@@ -18,11 +22,10 @@ class Board {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
         if (piece.shape()[r][c] == 1) {
-          gameBoard[startRow + r][startCol + c] = 1;
+          gameBoard[startRow+r][startCol+c] = 1;
         }
       }
     }
-    clearLines();
     return true;
   }
 
@@ -30,8 +33,8 @@ class Board {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
         if (piece.shape()[r][c] == 1) {
-          int boardRow = startRow + r;
-          int boardCol = startCol + c;
+          int boardRow = startRow+r;
+          int boardCol = startCol+c;
           if (boardRow < 0 || boardRow >= rows || boardCol < 0 || boardCol >= cols)
             return false;
           if (gameBoard[boardRow][boardCol] == 1)
@@ -51,7 +54,6 @@ class Board {
       for (int c = 0; c < cols; c++) {
         if (gameBoard[r][c] == 0) {
           full = false;
-          break;
         }
       }
       fullRows[r] = full;
@@ -61,7 +63,6 @@ class Board {
       for (int r = 0; r < rows; r++) {
         if (gameBoard[r][c] == 0) {
           full = false;
-          break;
         }
       }
       fullCols[c] = full;
@@ -90,15 +91,15 @@ class Board {
         else
           fill(220);
         stroke(0);
-        rect(c * cellSize + 250, r * cellSize + 175, cellSize, cellSize);
+        rect(c*cellSize+250, r*cellSize+175, cellSize, cellSize);
       }
     }
   }
   
   boolean canPlaceAny(Piece[] pieces) {
     for (Piece piece : pieces) {
-      for (int r = 0; r <= rows - piece.shape().length; r++) {
-        for (int c = 0; c <= cols - piece.shape()[0].length; c++) {
+      for (int r = 0; r <= rows-piece.shape().length; r++) {
+        for (int c = 0; c <= cols-piece.shape()[0].length; c++) {
           if (canPlace(piece, r, c)) {
             return true;
           }
