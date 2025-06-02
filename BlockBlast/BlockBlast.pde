@@ -10,7 +10,7 @@ private int y = 275;
 public Piece piece;
 private int select = -1;
 private int[] backgroundColor = {0,0,0};
-  
+
 public void setup(){
   size(920,920);
   pieceLineUp = new Piece[lineUpSize];
@@ -18,7 +18,7 @@ public void setup(){
   gameBoard=new Board();
   piece = null;
 }
-  
+
 
 public void draw(){
   if (keyPressed) {
@@ -37,11 +37,14 @@ public void draw(){
     fill(255);
   }
   background(backgroundColor[0], backgroundColor[1], backgroundColor[2]);
+  fill(0);
+  textSize(50);
+  text("BLOCKBLAST", 320, 75);
   fill(255);
-  rect(380,15,170,40);
+  rect(350,115,200,40);
   fill(0);
   textSize(20);
-  text("Score: "+score,430,40);
+  text("Score: "+score,395,140);
   gameBoard.drawBoard();
   if(piece != null){
     piece.drawPiece(x, y);
@@ -64,7 +67,7 @@ void newLineUp(){
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
   }
 }
-  
+
 public void scoreRow() {
   for(int row = 0; row < 8; row++) {
     boolean full = true;
@@ -139,7 +142,7 @@ void mouseReleased(){
     }
   }
   else{
-    piece = null; 
+    piece = null;
     select = -1;
   }
 }
