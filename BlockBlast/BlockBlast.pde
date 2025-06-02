@@ -6,7 +6,6 @@ private Board gameBoard;
 private int x = 460;
 private int y = 275;
 public Piece piece;
-private int select = 0;
   
 public void setup(){
   size(920,920);//MAGIC NUMBERS
@@ -40,7 +39,6 @@ void newLineUp(){
   for(int i = 0; i < 3; i++){
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
   }
-  select = 0;
 }
   
 public void scoreRow() {
