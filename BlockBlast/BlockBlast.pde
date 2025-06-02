@@ -13,7 +13,8 @@ public void setup(){
   pieceLineUp = new Piece[3];
   newLineUp();
   gameBoard=new Board();
-  piece=new Piece("T3x3");
+  //piece=new Piece("T3x3");
+  piece = null;
 }
   
 
@@ -25,9 +26,12 @@ public void draw(){
   textSize(20);
   text("Score: "+score,395,40);
   gameBoard.drawBoard();
-  piece.drawPiece(x, y);
+  if(piece != null){
+    piece.drawPiece(x, y);
+  }
   for(int i = 0; i<3; i++){
-    pieceLineUp[i].drawPiece(250 + i*150, 600);
+    if(pieceLineUp[i]!=null)
+    pieceLineUp[i].drawPiece(350 + i*170, 725);
   }
 }
 
@@ -58,11 +62,27 @@ public void scoreRow() {
 
 
 void mouseDragged(){
-  x=mouseX+10;
-  y=mouseY+10;
+  if(piece != null){
+    x=mouseX+10;
+    y=mouseY+10;
+  }
+}
+
+void mousePressed(){
+  for(int i = 0; i<3; i++){
+    if(mouseX > 250 + i*150 && mouseX < 400 + i*150 && mouseY >600 && mouseY <750){
+      if(pieceLineUp[i] != null){
+        piece = pieceLineUp[i];
+        pieceLineUp[i] = null;
+        x = mouseX;
+        y = mouseY;
+      }
+    }
+  }
 }
 
 void mouseReleased(){
+  if(piece == null) return;
   int pieceCenterOffset = 2*gameBoard.cellSize();
   int adjustedX = x-pieceCenterOffset;
   int adjustedY = y-pieceCenterOffset;
@@ -71,8 +91,18 @@ void mouseReleased(){
   if(gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
-    String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
-    piece = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
+    piece = null;
+    //String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
+    //piece = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
+    boolean empty = true;
+    for(Piece p : pieceLineUp){
+      if(p != null){
+        empty = false;
+      }
+    }
+    if(empty){
+      newLineUp();
+    }
   }
 }
 
