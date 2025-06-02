@@ -43,6 +43,21 @@ public void scoreRow(){
   }
 }
 
+void mouseDragged(){
+  x = mouseX;
+  y = mouseY;
+}
+
+void mouseReleased(){
+  int boardRow = (y-75)/50;
+  int boardCol = (x-260)/50;
+  if (gameBoard.placePiece(piece, boardRow, boardCol)) {
+    scoreRow();
+    scoreCol();
+    piece = new Piece("T3x3");
+  }
+}
+
 public void scoreCol(){
   for(int col = 0; col<8; col++){
     boolean full = true;
@@ -59,13 +74,7 @@ public void scoreCol(){
     }
   }
 }
-  
-  void mouseDragged(){
-    x=mouseX;
-    y=mouseY;
-  }
-  
-  
-  public void combos(){
-    combos = 0;
-  }
+
+public void combos(){
+  combos = 0;
+}
