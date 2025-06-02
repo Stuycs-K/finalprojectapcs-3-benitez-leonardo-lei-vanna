@@ -22,3 +22,7 @@ Discussed and worked with Leo on his laptop to create a UML diagram. Spent 20+ m
 Wrote thing to change score if rows are cleared. Not finished and needs to keep track of which rows cleared.
 >>>>>>> vanna
 Fixed name of classes and wrote get method to allow access to board in another class. 
+
+### 2025-06-01/2 - Made pieceLineUp and Game Over
+
+created the pieces to linup in a row and removed the starting piece on cursor. prevented null pointer exceptions when dragging pieces from lineup to board and also made sure that if not placed correctly, piece would go back to it's orginal placement. When no pieces can be placed, game over screen will be shown. The piecelineUp is kept track with select which shows which of the pieces is being currently held through mousepressed and mouse release. looks nice :D
