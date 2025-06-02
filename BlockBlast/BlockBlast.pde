@@ -21,11 +21,14 @@ public void setup(){
 
 public void draw(){
   background(255);
+  fill(0);
+  textSize(50);
+  text("BLOCKBLAST", 320, 75);
   fill(255);
-  rect(380,15,200,40);
+  rect(350,115,200,40);
   fill(0);
   textSize(20);
-  text("Score: "+score,395,40);
+  text("Score: "+score,395,140);
   gameBoard.drawBoard();
   if(piece != null){
     piece.drawPiece(x, y);
