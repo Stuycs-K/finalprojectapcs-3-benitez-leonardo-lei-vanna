@@ -6,6 +6,7 @@ private Board gameBoard;
 private int x = 460;
 private int y = 275;
 public Piece piece;
+private int select = -1;
   
 public void setup(){
   size(920,920);//MAGIC NUMBERS
@@ -29,7 +30,7 @@ public void draw(){
     piece.drawPiece(x, y);
   }
   for(int i = 0; i<3; i++){
-    if(pieceLineUp[i]!=null)
+    if(pieceLineUp[i]!=null && i != select)
     pieceLineUp[i].drawPiece(350 + i*170, 725);
   }
 }
@@ -71,7 +72,7 @@ void mousePressed(){
     if(mouseX > 250 + i*150 && mouseX < 400 + i*150 && mouseY >600 && mouseY <750){
       if(pieceLineUp[i] != null){
         piece = pieceLineUp[i];
-        pieceLineUp[i] = null;
+        select = i;
         x = mouseX;
         y = mouseY;
       }
@@ -90,17 +91,27 @@ void mouseReleased(){
     scoreRow();
     scoreCol();
     piece = null;
+    if(select >= 0 && select < 3){
+      pieceLineUp[select] = null;
+    }
+    piece = null;
+    select = -1;
     //String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
     //piece = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
     boolean empty = true;
     for(Piece p : pieceLineUp){
       if(p != null){
         empty = false;
+        break;
       }
     }
     if(empty){
       newLineUp();
     }
+  }
+  else{
+    piece = null; 
+    select = -1;
   }
 }
 
