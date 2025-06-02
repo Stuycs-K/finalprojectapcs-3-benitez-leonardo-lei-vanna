@@ -91,7 +91,7 @@ class Board {
         else
           fill(220);
         stroke(0);
-        rect(c*cellSize+250, r*cellSize+175, cellSize, cellSize);
+        rect(c*cellSize+250, r*cellSize+175, cellSize, cellSize);//MAGIC NUMBERS
       }
     }
   }

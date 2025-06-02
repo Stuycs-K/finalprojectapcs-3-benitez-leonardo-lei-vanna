@@ -8,7 +8,7 @@ private int y = 275;
 public Piece piece;
   
 public void setup(){
-  size(920,920);
+  size(920,920);//MAGIC NUMBERS
   pieceLineUp=new int[3];
   gameBoard=new Board();
   piece=new Piece("T3x3");
@@ -29,7 +29,7 @@ public void draw(){
 public void scoreRow() {
   for(int row = 0; row < 8; row++) {
     boolean full = true;
-    for(int col = 0; col < 8; col++) {
+    for(int col = 0; col < 8; col++) {//MAGIC NUMBERS
       if(gameBoard.getBoard()[row][col]==0) {
         full = false;
       }
@@ -53,7 +53,7 @@ void mouseReleased(){
   int pieceCenterOffset = 2*gameBoard.cellSize();
   int adjustedX = x-pieceCenterOffset;
   int adjustedY = y-pieceCenterOffset;
-  int boardCol = (adjustedX-250)/50;
+  int boardCol = (adjustedX-250)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
   int boardRow = (adjustedY-175)/50;
   if(gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
@@ -64,7 +64,7 @@ void mouseReleased(){
 }
 
 public void scoreCol() {
-  for(int col = 0; col < 8; col++) {
+  for(int col = 0; col < 8; col++) {//MORE MAGIC NUMBERS
     boolean full = true;
     for(int row = 0; row < 8; row++) {
       if(gameBoard.getBoard()[row][col] == 0) {
