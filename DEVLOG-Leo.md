@@ -35,3 +35,5 @@ Today we had a course-wide discussion and reviewed graphics final projects for i
 ### 2025-05-29 -
 
 I had to reclone due to issues, trying to get my branch to track remote. i fixed several bugs in the classes that prevent running
+
+### 2025-06-01 -

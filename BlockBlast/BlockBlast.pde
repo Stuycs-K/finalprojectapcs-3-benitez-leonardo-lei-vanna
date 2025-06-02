@@ -1,10 +1,11 @@
-  private int score;
-  private int combos;
-  private int[] pieceLineUp;
-  static String scoreText;
-  private Board gameBoard;
-  private int x = 460;
-  private int y = 275;
+private int score;
+private int combos;
+private int[] pieceLineUp;
+static String scoreText;
+private Board gameBoard;
+private int x = 460;
+private int y = 275;
+Piece piece;
   
   public void setup(){
     size(920,920);
