@@ -50,7 +50,7 @@ class Piece{
           fill(100, 200, 250);
         stroke(0);
         //rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
-        rect(c*cellSize+x-cellSize*4, r*cellSize+y-cellSize*4, cellSize, cellSize);
+        rect(c*cellSize+x, r*cellSize+y, cellSize, cellSize);
 
       }
     }
