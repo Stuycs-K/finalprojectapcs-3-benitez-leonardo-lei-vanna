@@ -31,7 +31,7 @@ public void draw(){
   if(piece != null){
     piece.drawPiece(x, y);
   }
-  for(int i = 0; i<3; i++){
+  for(int i = 0; i<lineUpSize; i++){
     if(pieceLineUp[i]!=null && i != select)
     pieceLineUp[i].drawPiece(350 + i*170, 725);
   }
@@ -45,7 +45,7 @@ public void draw(){
 
 void newLineUp(){
   String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
-  for(int i = 0; i < 3; i++){
+  for(int i = 0; i < lineUpSize; i++){
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
   }
 }
