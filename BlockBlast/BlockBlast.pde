@@ -49,12 +49,15 @@ void mouseDragged(){
 }
 
 void mouseReleased(){
-  int boardRow = (y-75)/50;
-  int boardCol = (x-260)/50;
+  int pieceCenterOffset = 2 * 50;  // cellSize * 2
+  int adjustedX = x - pieceCenterOffset;
+  int adjustedY = y - pieceCenterOffset;
+  int boardCol = (adjustedX - 250) / 50;
+  int boardRow = (adjustedY - 175) / 50;
   if (gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
-    piece = new Piece("T3x3");
+    piece = new Piece("T3x3"); // or random piece type
   }
 }
 
