@@ -98,6 +98,7 @@ class Board {
   
   boolean canPlaceAny(Piece[] pieces) {
     for (Piece piece : pieces) {
+      if(piece == null) continue;
       for (int r = 0; r <= rows-piece.shape().length; r++) {
         for (int c = 0; c <= cols-piece.shape()[0].length; c++) {
           if (canPlace(piece, r, c)) {

@@ -34,6 +34,12 @@ public void draw(){
     if(pieceLineUp[i]!=null && i != select)
     pieceLineUp[i].drawPiece(350 + i*170, 725);
   }
+  if(!gameBoard.canPlaceAny(pieceLineUp)){
+    fill(0);
+    textSize(50);
+    text("GAME OVER!", 350, 350);
+    noLoop();
+  }
 }
 
 void newLineUp(){
