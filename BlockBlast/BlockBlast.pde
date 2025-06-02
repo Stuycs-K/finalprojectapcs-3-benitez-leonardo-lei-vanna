@@ -1,5 +1,6 @@
 private int score;
 private int combos;
+private int numPlaced;
 private Piece[] pieceLineUp;
 static String scoreText;
 private Board gameBoard;
@@ -54,6 +55,7 @@ public void scoreRow() {
       for(int col = 0; col < 8; col++) {
         gameBoard.getBoard()[row][col] = 0;
       }
+      combos++;
       score += 80;
     }
   }
@@ -90,6 +92,11 @@ void mouseReleased(){
   if(gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
+    numPlaced++;
+    combos();
+    if(combos>1){
+      score += 80*combos;
+    }
     piece = null;
     if(select >= 0 && select < 3){
       pieceLineUp[select] = null;
@@ -128,11 +135,16 @@ public void scoreCol() {
         gameBoard.getBoard()[row][col] = 0;
       }
       score += 80;
+      combos++;
     }
   }
 }
 
 
 public void combos(){
-  combos = 0;
+  if(combos > 1){
+    if(numPlaced>3){
+      combos = 0;
+    }
+  }
 }
