@@ -32,6 +32,10 @@ I started working on implementing the Board class, particularly focusing on meth
 
 Today we had a course-wide discussion and reviewed graphics final projects for inspiration. Afterward, I made significant progress on the Board and Piece classes. I worked on finalizing the structure of the Piece class so it supports random generation and rotation of all piece types. I also cleaned up the Board class and reviewed its logic for clearing lines and placing blocks. I embedded all shapes into 5×5 matrices for alignment, added color generation, and made sure our shapes spawn with fixed but randomly chosen orientations. It's starting to feel like a real game engine now.
 
-### 2025-05-29 -
+### 2025-05-29 - Debugging and Environment Fixes
 
-I had to reclone due to issues, trying to get my branch to track remote. i fixed several bugs in the classes that prevent running
+After encountering persistent syncing issues between my local files and the remote repo, I recloned the project to reestablish proper branch tracking. Once that was resolved, I dove into debugging — identifying and fixing several critical logic errors in the Board and Piece classes that were preventing the program from compiling or running correctly. This session was less about adding features and more about making sure our foundation was solid and runnable.
+
+### 2025-06-01 - Piece Placement, Scoring, and Visual Refinement
+
+I focused heavily on core gameplay functionality today. First, I debugged and refined the piece placement logic, ensuring that mouse dragging only affects the current piece and not the board itself. I adjusted how pieces snap to the grid and verified that invalid placements are correctly rejected. Next, I fixed the scoring system so that points are accurately awarded when rows or columns are cleared. I then added randomized piece generation to trigger immediately after a piece is successfully placed. Finally, I cleaned up the visual presentation by modifying the drawPiece() method to only render the active blocks of a piece — removing the distracting white boxes that previously filled empty cells. These changes brought the project much closer to a polished, playable state.

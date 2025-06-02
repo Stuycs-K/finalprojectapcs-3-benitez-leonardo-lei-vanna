@@ -33,8 +33,8 @@ class Piece{
   
   private int[][] embedShape(int[][] small) {
     int[][] result = new int[3][3];
-    int rowOffset = (3 - small.length) / 2;
-    int colOffset = (3 - small[0].length) / 2;
+    int rowOffset = (3-small.length)/2;
+    int colOffset = (3-small[0].length)/2;
     for (int i = 0; i < small.length; i++) {
       for (int j = 0; j < small[0].length; j++) {
         result[i+rowOffset][j+colOffset] = small[i][j];
@@ -46,20 +46,19 @@ class Piece{
   public void drawPiece(int x, int y) {
     for (int r = 0; r < shape.length; r++) {
       for (int c = 0; c < shape[0].length; c++) {
-        if (shape[r][c] == 1)
-          fill(100, 200, 250);
-        stroke(0);
-        //rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
-        rect(c*cellSize+x-cellSize*4, r*cellSize+y-cellSize*4, cellSize, cellSize);
-
+        if (shape[r][c] == 1) {
+          fill(design[0], design[1], design[2]);
+          stroke(0);
+          rect(c*cellSize+x-cellSize*2, r*cellSize+y-cellSize*2, cellSize, cellSize);
+        }
       }
     }
   }
+
   
   
   private int[][] generateShape(String type) {
-    int[][] grid = new int[5][5];
-    int r = (int)random(0, 4); // Random rotation
+    int r = (int)random(0, 4);
 
     switch(type) {
       case "T3x3":
@@ -98,9 +97,7 @@ class Piece{
         };
         return embedShape(l22[r]);
 
-        
       default:
-        // fallback: 2x2 block
         return embedShape(new int[][] {
           {1,1},
           {1,1}

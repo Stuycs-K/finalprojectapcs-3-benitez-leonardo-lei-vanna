@@ -11,6 +11,10 @@ class Board {
   public int[][] getBoard(){
     return gameBoard;
   }
+  
+  public int cellSize(){
+    return cellSize;
+  }
 
   boolean placePiece(Piece piece, int startRow, int startCol) {
     if (!canPlace(piece, startRow, startCol))
@@ -18,20 +22,19 @@ class Board {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
         if (piece.shape()[r][c] == 1) {
-          gameBoard[startRow+r][startCol+c]=1;
+          gameBoard[startRow+r][startCol+c] = 1;
         }
       }
     }
-    clearLines();
     return true;
   }
 
   public boolean canPlace(Piece piece, int startRow, int startCol) {
     for (int r = 0; r < piece.shape().length; r++) {
       for (int c = 0; c < piece.shape()[0].length; c++) {
-        if (piece.shape[r][c] == 1) {
-          int boardRow = startRow + r;
-          int boardCol = startCol + c;
+        if (piece.shape()[r][c] == 1) {
+          int boardRow = startRow+r;
+          int boardCol = startCol+c;
           if (boardRow < 0 || boardRow >= rows || boardCol < 0 || boardCol >= cols)
             return false;
           if (gameBoard[boardRow][boardCol] == 1)
@@ -42,20 +45,15 @@ class Board {
     return true;
   }
 
-  public void movePiece() {
-    return;
-  }
 
   public void clearLines() {
     boolean[] fullRows = new boolean[rows];
     boolean[] fullCols = new boolean[cols];
-
     for (int r = 0; r < rows; r++) {
       boolean full = true;
       for (int c = 0; c < cols; c++) {
         if (gameBoard[r][c] == 0) {
           full = false;
-          break;
         }
       }
       fullRows[r] = full;
@@ -65,12 +63,10 @@ class Board {
       for (int r = 0; r < rows; r++) {
         if (gameBoard[r][c] == 0) {
           full = false;
-          break;
         }
       }
       fullCols[c] = full;
     }
-
     for (int r = 0; r < rows; r++) {
       if (fullRows[r]) {
         for (int c = 0; c < cols; c++) {
@@ -78,7 +74,6 @@ class Board {
         }
       }
     }
-
     for (int c = 0; c < cols; c++) {
       if (fullCols[c]) {
         for (int r = 0; r < rows; r++) {
@@ -88,7 +83,7 @@ class Board {
     }
   }
 
-  public void drawBoard(int x, int y) {
+  public void drawBoard() {
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < cols; c++) {
         if (gameBoard[r][c] == 1)
@@ -96,17 +91,15 @@ class Board {
         else
           fill(220);
         stroke(0);
-        //rect(c*cellSize+260, r*cellSize+75, cellSize, cellSize);
-        rect(c*cellSize+x-cellSize*4, r*cellSize+y-cellSize*4, cellSize, cellSize);
-
+        rect(c*cellSize+250, r*cellSize+175, cellSize, cellSize);
       }
     }
   }
   
-  boolean canPlaceAny(Piece[] pieces) {//for game over scenario
+  boolean canPlaceAny(Piece[] pieces) {
     for (Piece piece : pieces) {
-      for (int r = 0; r <= rows - piece.shape.length; r++) {
-        for (int c = 0; c <= cols - piece.shape[0].length; c++) {
+      for (int r = 0; r <= rows-piece.shape().length; r++) {
+        for (int c = 0; c <= cols-piece.shape()[0].length; c++) {
           if (canPlace(piece, r, c)) {
             return true;
           }
