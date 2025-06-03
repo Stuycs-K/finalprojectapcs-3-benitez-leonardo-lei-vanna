@@ -82,10 +82,13 @@ public void scoreRow() {
       }
       combos++;
       score += 80;
+      randBackground();
     }
   }
 }
 
+public void randBackground(){
+}
 
 void mouseDragged(){
   if(piece != null){
@@ -161,6 +164,7 @@ public void scoreCol() {
       }
       score += 80;
       combos++;
+      randBackground();
     }
   }
 }
