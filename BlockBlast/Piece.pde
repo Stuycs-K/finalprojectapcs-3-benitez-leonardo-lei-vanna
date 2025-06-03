@@ -96,6 +96,22 @@ class Piece{
           { {0,1}, {1,1} }
         };
         return embedShape(l22[r]);
+        
+      case "S2x3":
+        int[][][] s23 = {
+          { {0,1,1}, {1,1,0} },
+          { {1,0}, {1,1}, {0,1} },
+          { {0,0,0}, {0,1,1}, {1,1,0} },
+          { {0,1}, {1,1}, {1,0} }
+        };
+        return embedShape(s23[r]);
+        
+      case "V2x3":
+        int[][][] v23 = {
+          { {1,1,1}, {1,1,1} },
+          { {1,1}, {1,1}, {1,1} }
+        };
+        return embedShape(v23[r % 2]); // only 2 variants
 
       default:
         return embedShape(new int[][] {
