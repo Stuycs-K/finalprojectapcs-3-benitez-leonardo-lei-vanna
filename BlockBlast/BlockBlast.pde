@@ -62,7 +62,7 @@ public void draw(){
 }
 
 void newLineUp(){
-  String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
+  String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2", "V2x3", "S2x3"};
   for(int i = 0; i < lineUpSize; i++){
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
   }
