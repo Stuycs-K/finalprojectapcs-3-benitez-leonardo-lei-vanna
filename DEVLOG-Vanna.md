@@ -29,3 +29,7 @@ created the pieces to linup in a row and removed the starting piece on cursor. p
 
 ### 2025-06-03 - Added two new pieces
 added 2x3 blocks into the pieceLineUp
+
+### 2025-06-04 - Added a restart button
+
+If pressed R, players can replay once they have lost and reached game over!  Will make a Best score soon
