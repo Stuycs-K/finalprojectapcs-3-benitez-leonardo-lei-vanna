@@ -82,7 +82,7 @@ public void scoreRow() {
       }
       combos++;
       score += 80;
-      randBackground();
+      //randBackground();
     }
   }
 }
@@ -178,7 +178,7 @@ public void scoreCol() {
       }
       score += 80;
       combos++;
-      randBackground();
+      //randBackground();
     }
   }
 }
