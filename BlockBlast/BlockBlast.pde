@@ -59,6 +59,28 @@ public void draw(){
     text("GAME OVER!", 350, 350);
     noLoop();
   }
+  //int[] randcolors = piece.randomColor();
+  //if (backgroundColor[0] != randcolors[0]) {
+  //  if (backgroundColor[0] < randcolors[0]) {
+  //    backgroundColor[0]++;
+  //   } else if (backgroundColor[0] > randcolors[0]) {
+  //     backgroundColor[0]--;
+  //   }
+  //}
+  //if (backgroundColor[i] != randcolors[i]) {
+  //  if (backgroundColor[i] < randcolors[i]) {
+  //    backgroundColor[i]++;
+  //   } else if (backgroundColor[i] > randcolors[i]) {
+  //     backgroundColor[i]--;
+  //   }
+  //}
+  //if (backgroundColor[i] != randcolors[i]) {
+  //  if (backgroundColor[i] < randcolors[i]) {
+  //    backgroundColor[i]++;
+  //   } else if (backgroundColor[i] > randcolors[i]) {
+  //     backgroundColor[i]--;
+  //   }
+  //}
 }
 
 void newLineUp(){
@@ -86,22 +108,6 @@ public void scoreRow() {
     }
   }
 }
-
-//public void randBackground() {
-//  int[] randcolors = piece.randomColor();
-//  int stepDelay = 20;
-//  for (int i = 0; i < 3; i++) {
-//    while (backgroundColor[i] != randcolors[i]) {
-//      if (backgroundColor[i] < randcolors[i]) {
-//        backgroundColor[i]++;
-//      } else if (backgroundColor[i] > randcolors[i]) {
-//        backgroundColor[i]--;
-//      }
-//      delay(stepDelay);
-//      redraw(); 
-//    }
-//  }
-//}
 
 
 void mouseDragged(){
