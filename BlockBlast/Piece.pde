@@ -23,7 +23,7 @@ class Piece{
     return identifier;
   }
   
-  private int[] randomColor() {
+   public int[] randomColor() {
     return new int[] {
       (int)random(80, 255),
       (int)random(80, 255),
