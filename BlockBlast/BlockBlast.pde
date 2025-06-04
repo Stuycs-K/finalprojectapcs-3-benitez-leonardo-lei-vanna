@@ -82,13 +82,27 @@ public void scoreRow() {
       }
       combos++;
       score += 80;
-      randBackground();
+      //randBackground();
     }
   }
 }
 
-public void randBackground(){
-}
+//public void randBackground() {
+//  int[] randcolors = piece.randomColor();
+//  int stepDelay = 20;
+//  for (int i = 0; i < 3; i++) {
+//    while (backgroundColor[i] != randcolors[i]) {
+//      if (backgroundColor[i] < randcolors[i]) {
+//        backgroundColor[i]++;
+//      } else if (backgroundColor[i] > randcolors[i]) {
+//        backgroundColor[i]--;
+//      }
+//      delay(stepDelay);
+//      redraw(); 
+//    }
+//  }
+//}
+
 
 void mouseDragged(){
   if(piece != null){
@@ -164,7 +178,7 @@ public void scoreCol() {
       }
       score += 80;
       combos++;
-      randBackground();
+      //randBackground();
     }
   }
 }
