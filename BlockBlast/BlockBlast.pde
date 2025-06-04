@@ -87,21 +87,21 @@ public void scoreRow() {
   }
 }
 
-//public void randBackground() {
-//  int[] randcolors = piece.randomColor();
-//  int stepDelay = 20;
-//  for (int i = 0; i < 3; i++) {
-//    while (backgroundColor[i] != randcolors[i]) {
-//      if (backgroundColor[i] < randcolors[i]) {
-//        backgroundColor[i]++;
-//      } else if (backgroundColor[i] > randcolors[i]) {
-//        backgroundColor[i]--;
-//      }
-//      delay(stepDelay);
-//      redraw(); 
-//    }
-//  }
-//}
+public void randBackground() {
+  int[] randcolors = piece.randomColor();
+  int stepDelay = 20;
+  for (int i = 0; i < 3; i++) {
+    while (backgroundColor[i] != randcolors[i]) {
+      if (backgroundColor[i] < randcolors[i]) {
+        backgroundColor[i]++;
+      } else if (backgroundColor[i] > randcolors[i]) {
+        backgroundColor[i]--;
+      }
+      delay(stepDelay);
+      redraw(); 
+    }
+  }
+}
 
 
 void mouseDragged(){
