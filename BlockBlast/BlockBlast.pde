@@ -22,17 +22,17 @@ public void setup(){
 
 public void draw(){
   if (keyPressed) {
-    if ((key == 'w' || key == 'W')&&backgroundColor[0]<246)
+    if ((key == 'Q' || key == 'q')&&backgroundColor[0]<246)
       backgroundColor[0]+=10;
-    if ((key == 's' || key == 'S')&&backgroundColor[0]>9)
+    if ((key == 'W' || key == 'w')&&backgroundColor[0]>9)
       backgroundColor[0]-=10;
-    if ((key == 'e' || key == 'E')&&backgroundColor[1]<246)
+    if ((key == 'A' || key == 's')&&backgroundColor[1]<246)
       backgroundColor[1]+=10;
-    if ((key == 'd' || key == 'D')&&backgroundColor[1]>9)
+    if ((key == 'S' || key == 's')&&backgroundColor[1]>9)
       backgroundColor[1]-=10;
-    if ((key == 'r' || key == 'R')&&backgroundColor[2]<246)
+    if ((key == 'D' || key == 'd')&&backgroundColor[2]<246)
       backgroundColor[2]+=10;
-    if ((key == 'f' || key == 'F')&&backgroundColor[2]>9)
+    if ((key == 'F' || key == 'f')&&backgroundColor[2]>9)
       backgroundColor[2]-=10;
     fill(255);
   }
@@ -57,7 +57,13 @@ public void draw(){
     fill(0);
     textSize(50);
     text("GAME OVER!", 350, 350);
-    noLoop();
+    text("Press R to restart ", 290, 390);
+    if(keyPressed){
+      if (key == 'R' || key == 'r'){
+        setup();
+        score = 0;
+      }
+    }
   }
 }
 
