@@ -126,7 +126,7 @@ public void scoreRow() {
       }
       combos++;
       score += 80;
-      time = 200;
+      time = 50;
     }
   }
 }
@@ -206,7 +206,7 @@ public void scoreCol() {
       }
       score += 80;
       combos++;
-      time = 200;
+      time = 50;
     }
   }
 }
