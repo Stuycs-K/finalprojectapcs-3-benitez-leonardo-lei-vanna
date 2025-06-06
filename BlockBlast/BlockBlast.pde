@@ -1,4 +1,5 @@
 private int score;
+private int highScore;
 private int combos;
 private int numPlaced;
 private Piece[] pieceLineUp;
@@ -37,14 +38,15 @@ public void draw(){
     fill(255);
   }
   background(backgroundColor[0], backgroundColor[1], backgroundColor[2]);
-  fill(0);
+  fill(255);
   textSize(50);
   text("BLOCKBLAST", 320, 75);
   fill(255);
-  rect(350,115,200,40);
+  rect(350,95,200,60);
   fill(0);
   textSize(20);
-  text("Score: "+score,395,140);
+  text("Score: "+score,410,145);
+  highScore();
   gameBoard.drawBoard();
   if(piece != null){
     piece.drawPiece(x, y);
@@ -56,8 +58,8 @@ public void draw(){
   if(!gameBoard.canPlaceAny(pieceLineUp)){
     fill(0);
     textSize(50);
-    text("GAME OVER!", 350, 350);
-    text("Press R to restart ", 290, 390);
+    text("GAME OVER!", 330, 350);
+    text("Press R to restart ", 282, 390);
     if(keyPressed){
       if (key == 'R' || key == 'r'){
         setup();
@@ -66,6 +68,13 @@ public void draw(){
     }
   }
 }
+
+void highScore(){
+  fill(0);
+  textSize(20);
+  text("High Score: "+highScore,390,120);
+}
+
 
 void newLineUp(){
   String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2", "V2x3", "S2x3"};
@@ -88,6 +97,9 @@ public void scoreRow() {
       }
       combos++;
       score += 80;
+      if(score>highScore){
+        highScore = score;
+      }
       //randBackground();
     }
   }
@@ -184,6 +196,9 @@ public void scoreCol() {
       }
       score += 80;
       combos++;
+       if(score>highScore){
+        highScore = score;
+      }
       //randBackground();
     }
   }
