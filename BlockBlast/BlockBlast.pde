@@ -11,6 +11,7 @@ private int y = 275;
 public Piece piece;
 private int select = -1;
 private int time = 0;
+private int timeScore = 0;
 private int[] backgroundColor = new int[] {
   (int)random(150, 255),
   (int)random(150, 255),
@@ -105,6 +106,10 @@ public void draw() {
     }
     time --;
   }
+   if(timeScore>0){
+   text("NEW HIGH SCORE!!", 200, 200);
+   time--;
+ }
 }
 
 void highScore(){
@@ -138,6 +143,7 @@ public void scoreRow() {
       time = 50;
       if(score>highScore){
         highScore = score;
+        timeScore = 50;
       }
     }
   }
@@ -221,6 +227,7 @@ public void scoreCol() {
       time = 50;
       if(score>highScore){
        highScore = score;
+       timeScore = 50;
      }
     }
   }
