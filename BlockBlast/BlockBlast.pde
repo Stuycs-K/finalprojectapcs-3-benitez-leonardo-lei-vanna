@@ -122,6 +122,21 @@ void drawShadow(Piece p, int mouseX, int mouseY) {
   int adjustedY = mouseY - pieceCenterOffset;
   int boardCol = (adjustedX - 250) / gameBoard.cellSize();
   int boardRow = (adjustedY - 175) / gameBoard.cellSize();
+  if (!gameBoard.canPlace(p, boardRow, boardCol)) return;
+  int[][] shape = p.shape();
+  int[] pcolor = p.colorID();
+  int cs = gameBoard.cellSize();
+  noStroke();//testing this out
+  fill(pcolor[0], pcolor[1], pcolor[2], 100);
+  for (int r = 0; r < shape.length; r++) {
+    for (int c = 0; c < shape[0].length; c++) {
+      if (shape[r][c] == 1) {
+        int drawX = (boardCol + c) * cs + 250;
+        int drawY = (boardRow + r) * cs + 175;
+        rect(drawX, drawY, cs, cs);
+      }
+    }
+  }
 }
 
 
