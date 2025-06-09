@@ -107,8 +107,11 @@ public void draw() {
     time --;
   }
    if(timeScore>0){
-   text("NEW HIGH SCORE!!", 200, 200);
-   time--;
+     fill(255,0,0);
+     textSize(40);
+     rotate(radians(-15));
+   text("NEW HIGH SCORE!!", 100, 275);
+   timeScore--;
  }
 }
 
@@ -143,7 +146,7 @@ public void scoreRow() {
       time = 50;
       if(score>highScore){
         highScore = score;
-        timeScore = 50;
+        timeScore = 100;
       }
     }
   }
@@ -227,7 +230,7 @@ public void scoreCol() {
       time = 50;
       if(score>highScore){
        highScore = score;
-       timeScore = 50;
+       timeScore = 100;
      }
     }
   }
