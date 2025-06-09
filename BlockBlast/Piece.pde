@@ -43,23 +43,20 @@ class Piece {
     return result;
   }
 
-  public int[] centerOffset() {
+  public int[] getAnchorOffset() {
     int[][] s = shape();
-    int centerRow = 0;
-    int centerCol = 0;
-    int count = 0;
+    int minRow = s.length, minCol = s[0].length;
     for (int r = 0; r < s.length; r++) {
       for (int c = 0; c < s[0].length; c++) {
         if (s[r][c] == 1) {
-          centerRow += r;
-          centerCol += c;
-          count++;
+          if (r < minRow) minRow = r;
+          if (c < minCol) minCol = c;
         }
       }
     }
-    if (count == 0) return new int[] {0, 0};
-    return new int[] {centerRow/count, centerCol/count};
+    return new int[] {minRow, minCol};
   }
+
 
 
   public void drawPiece(int x, int y) {

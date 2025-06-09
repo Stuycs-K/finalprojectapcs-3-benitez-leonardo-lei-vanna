@@ -117,12 +117,16 @@ public void draw() {
 
 
 void drawShadow(Piece p, int mouseX, int mouseY) {
-  int[] centerOffset = p.centerOffset();
   int cs = gameBoard.cellSize();
-  int adjustedX = mouseX - cs * centerOffset[1];
-  int adjustedY = mouseY - cs * centerOffset[0];
-  int boardCol = (adjustedX - 250) / gameBoard.cellSize();
-  int boardRow = (adjustedY - 175) / gameBoard.cellSize();
+  int[] offset = p.getAnchorOffset();
+  int[][] s = p.shape();
+
+  int pieceHeight = s.length;
+  int pieceWidth = s[0].length;
+
+  int boardCol = (mouseX - 250) / cs - pieceWidth / 2 + offset[1];
+  int boardRow = (mouseY - 175) / cs - pieceHeight / 2 + offset[0];
+
   if (!gameBoard.canPlace(p, boardRow, boardCol)) return;
   int[][] shape = p.shape();
   int[] pcolor = p.colorID();
