@@ -58,7 +58,7 @@ public void draw() {
   }
   for (int i = 0; i<lineUpSize; i++) {
     if (pieceLineUp[i]!=null && i != select)
-      pieceLineUp[i].drawPiece(350 + i*170, 725);
+      pieceLineUp[i].drawPiece(350+i*170, 725);
   }
   if (!gameBoard.canPlaceAny(pieceLineUp)) {
     fill(0);
@@ -117,11 +117,11 @@ public void draw() {
 
 
 void drawShadow(Piece p, int mouseX, int mouseY) {
-  int pieceCenterOffset = 2 * gameBoard.cellSize();
-  int adjustedX = mouseX - pieceCenterOffset;
-  int adjustedY = mouseY - pieceCenterOffset;
-  int boardCol = (adjustedX - 225) / gameBoard.cellSize();
-  int boardRow = (adjustedY - 150) / gameBoard.cellSize();
+  int pieceCenterOffset = 2*gameBoard.cellSize();
+  int adjustedX = mouseX-pieceCenterOffset;
+  int adjustedY = mouseY-pieceCenterOffset;
+  int boardCol = (adjustedX-225)/gameBoard.cellSize();
+  int boardRow = (adjustedY-150)/gameBoard.cellSize();
   if (!gameBoard.canPlace(p, boardRow, boardCol)) return;
   int[][] shape = p.shape();
   int[] pcolor = p.colorID();
@@ -132,8 +132,8 @@ void drawShadow(Piece p, int mouseX, int mouseY) {
   for (int r = 0; r < shape.length; r++) {
     for (int c = 0; c < shape[0].length; c++) {
       if (shape[r][c] == 1) {
-        int drawX = (boardCol + c) * cs + 250;
-        int drawY = (boardRow + r) * cs + 175;
+        int drawX = (boardCol+c)*cs+250;
+        int drawY = (boardRow+r)*cs+175;
         rect(drawX, drawY, cs, cs);
       }
     }
@@ -185,7 +185,7 @@ void mouseDragged() {
 
 void mousePressed() {
   for (int i = 0; i<3; i++) {
-    if (mouseX > 250 + i*150 && mouseX < 400 + i*150 && mouseY >600 && mouseY <750) {
+    if (mouseX > 250+i*150 && mouseX < 400+i*150 && mouseY >600 && mouseY <750) {
       if (pieceLineUp[i] != null) {
         piece = pieceLineUp[i];
         select = i;
@@ -198,11 +198,11 @@ void mousePressed() {
 
 void mouseReleased() {
   if (piece == null) return;
-  int pieceCenterOffset = 2 * gameBoard.cellSize();
-  int adjustedX = mouseX - pieceCenterOffset;
-  int adjustedY = mouseY - pieceCenterOffset;
-  int boardCol = (adjustedX - 225) / gameBoard.cellSize();
-  int boardRow = (adjustedY - 150) / gameBoard.cellSize();
+  int pieceCenterOffset = 2*gameBoard.cellSize();
+  int adjustedX = mouseX-pieceCenterOffset;
+  int adjustedY = mouseY-pieceCenterOffset;
+  int boardCol = (adjustedX-225)/gameBoard.cellSize();
+  int boardRow = (adjustedY-150)/gameBoard.cellSize();
   if (gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
