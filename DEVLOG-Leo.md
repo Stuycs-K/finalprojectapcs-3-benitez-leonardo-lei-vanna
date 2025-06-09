@@ -1,7 +1,3 @@
-Dev Log:
-
-This document must be updated daily every time you finish a work session.
-
 ## Leonardo Benitez
 
 ### 2025-05-16 - Proposal
@@ -40,8 +36,25 @@ After encountering persistent syncing issues between my local files and the remo
 
 I focused heavily on core gameplay functionality today. First, I debugged and refined the piece placement logic, ensuring that mouse dragging only affects the current piece and not the board itself. I adjusted how pieces snap to the grid and verified that invalid placements are correctly rejected. Next, I fixed the scoring system so that points are accurately awarded when rows or columns are cleared. I then added randomized piece generation to trigger immediately after a piece is successfully placed. Finally, I cleaned up the visual presentation by modifying the drawPiece() method to only render the active blocks of a piece — removing the distracting white boxes that previously filled empty cells. These changes brought the project much closer to a polished, playable state.
 
+### 2025-06-02 - Piece Control + Color Logic + Refactoring
 
+I added RGB-based color generation for each piece and created keyboard controls to adjust their colors for testing. I also cleaned up the drawPiece logic to separate visuals from internal behavior and continued refining mouse drag detection. I ran multiple tests on piece placement across the board and tweaked the canPlace and isValid methods to prevent invalid overlaps. I also removed unused variables and began re-centering the visual grid, fixing visual offsets from earlier versions.
 
+### 2025-06-03 - Visual Polish + Background Experiments
+
+I experimented with randomly generated background visuals to make the game more dynamic and colorful. This included testing gradient effects and animated transitions, though not all of it was committed. I also cleaned up piece rendering by ensuring shadows don’t misalign and continued adjusting piece centering on the board. I updated the draw loop and added more devlog notes to reflect these updates.
+
+### 2025-06-04 - Game Over Logic + Restart + UI Centering
+
+Today I worked on integrating a game-over condition into the logic — specifically modifying the canPlaceAny() method to check for board saturation. I also added a restart button that resets the score and generates a new set of pieces. I did a full test cycle for UI centering, cleaning up the offset calculation that had been skewing the piece placement slightly. Also started writing up instructions and preparing for the README update.
+
+### 2025-06-08 - Color Matching + Shadow Fixes + Cleanup
+
+I overhauled the color-matching logic so that the game now checks for color adjacency when determining which blocks to clear. This involved modifying the clearLines method and embedding new logic into the board scanning routine. I also fixed the centering of triangle-based pieces, which had been rendering off-center due to uneven matrix padding. I added a piece-shadow feature that previews where a block would land before it’s placed, using a helper method to simulate ghost placement. Finally, I cleaned up the entire board render function and deleted all commented-out code and test snippets to prepare for final polishing.
+
+### 2025-06-09 - Game Over Bug Fix + High Score Display
+
+I finally tracked down and fixed a long-standing bug in the game-over logic. The issue was caused by an edge case where pieces could be scanned for but be missed due to a row of zeros in their structure. I restructured the piece layouts  and added a last-resort board scan to ensure endgame triggers correctly. I also implemented a high score tracker that persists across restarts and is updated on-screen. Lastly, I fixed an issue with image rendering in the UI — specifically, missing image icons in the score display that were failing to load on launch.
 
 I believe this document accurately reflects the contributions of my teammate
 - Vanna Lei
