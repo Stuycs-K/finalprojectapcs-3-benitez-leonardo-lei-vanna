@@ -201,12 +201,13 @@ void mousePressed() {
 
 void mouseReleased() {
   if (piece == null) return;
-  int[] centerOffset = piece.centerOffset();
   int cs = gameBoard.cellSize();
-  int adjustedX = mouseX - cs * centerOffset[1];
-  int adjustedY = mouseY - cs * centerOffset[0];
-  int boardCol = (adjustedX - 250) / cs;
-  int boardRow = (adjustedY - 175) / cs;
+  int[] offset = piece.getAnchorOffset();
+  int[][] s = piece.shape();
+  int pieceHeight = s.length;
+  int pieceWidth = s[0].length;
+  int boardCol = (mouseX - 250) / cs - pieceWidth / 2 + offset[1];
+  int boardRow = (mouseY - 175) / cs - pieceHeight / 2 + offset[0];
   if (gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
