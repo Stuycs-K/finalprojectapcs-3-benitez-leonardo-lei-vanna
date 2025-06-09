@@ -49,49 +49,6 @@ class Board {
     return true;
   }
 
-
-  //public void clearLines() {
-  //  boolean[] fullRows = new boolean[rows];
-  //  boolean[] fullCols = new boolean[cols];
-  //  for (int r = 0; r<rows; r++) {
-  //    boolean full = true;
-  //    for (int c = 0; c<cols; c++) {
-  //      if (gameBoard[r][c] == 0) {
-  //        full = false;
-  //      }
-  //    }
-  //    fullRows[r] = full;
-  //  }
-  //  for (int c = 0; c<cols; c++) {
-  //    boolean full = true;
-  //    for (int r = 0; r<rows; r++) {
-  //      if (gameBoard[r][c] == 0) {
-  //        full = false;
-  //      }
-  //    }
-  //    fullCols[c] = full;
-  //  }
-  //  for (int r = 0; r<rows; r++) {
-  //    if (fullRows[r]) {
-  //      for (int c = 0; c<cols; c++) {
-  //        gameBoard[r][c] = 0;
-  //      }
-  //    }
-  //  }
-  //  for (int c = 0; c<cols; c++) {
-  //    if (fullCols[c]) {
-  //      for (int r = 0; r<rows; r++) {
-  //        gameBoard[r][c] = 0;
-  //      }
-  //    }
-  //  }
-  //  int[] randArray = piece.randomColor();
-  //  for(int i = 0; i<randArray[0]; i++){
-
-  //  }
-
-  //}
-
   public void drawBoard() {
     for (int r = 0; r<rows; r++) {
       for (int c = 0; c<cols; c++) {
