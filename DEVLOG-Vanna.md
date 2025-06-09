@@ -15,12 +15,9 @@ Wrote what our MVP would be like in 1.5 weeks and also what features we would li
 
 ### 2025-05-22 - Made UML diagram
 Discussed and worked with Leo on his laptop to create a UML diagram. Spent 20+ minutes
-<<<<<<< HEAD
-=======
 
 ### 2025-05-28 - Worked on score
 Wrote thing to change score if rows are cleared. Not finished and needs to keep track of which rows cleared.
->>>>>>> vanna
 Fixed name of classes and wrote get method to allow access to board in another class.
 
 ### 2025-06-01/2 - Made pieceLineUp and Game Over
@@ -33,3 +30,7 @@ added 2x3 blocks into the pieceLineUp
 ### 2025-06-04 - Added a restart button
 
 If pressed R, players can replay once they have lost and reached game over!  Will make a Best score soon
+
+### 2025-06-09 - New score and animated score
+
+When the score increases, it would in intervals of 1 so it looks good. When a new score is reached, new score will show up! 
