@@ -224,8 +224,8 @@ void mouseReleased() {
   int pieceCenterOffset = 2*gameBoard.cellSize();
   int adjustedX = mouseX-pieceCenterOffset;
   int adjustedY = mouseY-pieceCenterOffset;
-  int boardCol = (adjustedX-225)/gameBoard.cellSize();
-  int boardRow = (adjustedY-150)/gameBoard.cellSize();
+  int boardCol = (adjustedX-215)/gameBoard.cellSize();
+  int boardRow = (adjustedY-140)/gameBoard.cellSize();
   if (gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
@@ -240,8 +240,6 @@ void mouseReleased() {
     }
     piece = null;
     select = -1;
-    //String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2"};
-    //piece = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
     boolean empty = true;
     for (Piece p : pieceLineUp) {
       if (p != null) {
