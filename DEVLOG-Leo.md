@@ -39,9 +39,3 @@ After encountering persistent syncing issues between my local files and the remo
 ### 2025-06-01 - Piece Placement, Scoring, and Visual Refinement
 
 I focused heavily on core gameplay functionality today. First, I debugged and refined the piece placement logic, ensuring that mouse dragging only affects the current piece and not the board itself. I adjusted how pieces snap to the grid and verified that invalid placements are correctly rejected. Next, I fixed the scoring system so that points are accurately awarded when rows or columns are cleared. I then added randomized piece generation to trigger immediately after a piece is successfully placed. Finally, I cleaned up the visual presentation by modifying the drawPiece() method to only render the active blocks of a piece — removing the distracting white boxes that previously filled empty cells. These changes brought the project much closer to a polished, playable state.
-
-
-
-
-I believe this document accurately reflects the contributions of my teammate
-- Vanna Lei
