@@ -10,7 +10,7 @@
       filled in. There were be three random pieces generated for you to fit in the board. You will use arrow keys (or drag and drop if we have time) to move the pieces onto the board.
       The row gets cleared and you get points after the row is filled with blocks, just like the game. The score will be placed on the top and it will also account for combos.~
 
-      Our group is going to recreate the amazing Block Blast Game. There will be an empty board with three random pieces generated for you to fit in the board. You can drag and drop the pieces to move them onto the board. The row or column gets cleared after the row or col is filled with blocks and you can get points. The score and high score will be tracked on the top and once no pieces fit, game is over and you can play again. 
+      Our group is going to recreate the amazing Block Blast Game. There will be an empty board with three random pieces generated for you to fit in the board. You can drag and drop the pieces to move them onto the board. The row or column gets cleared after the row or col is filled with blocks and you can get points. The score and high score will be tracked on the top and once no pieces fit, game is over and you can play again.
 
   Critical features (Minimum Viable Product) - What you want to have after 1.5 weeks.
      - After 1.5 weeks, our MVP would be the creation of game board, pieces, random piece generator, and an attempt to move and place blcoks.
@@ -22,7 +22,7 @@
 
 UML Diagram (see below) that shows your class heirachy.
 
-![alt text](https://github.com/Stuycs-K/finalprojectapcs-3-benitez-leonardo-lei-vanna/blob/main/UML2.png "UML Diagram")
+![alt text](https://github.com/Stuycs-K/finalprojectapcs-3-benitez-leonardo-lei-vanna/blob/main/FinalUML.png "UML Diagram")
 
 Outline of how methods will fit together.
 
