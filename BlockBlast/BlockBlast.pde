@@ -42,6 +42,10 @@ public void draw() {
       backgroundColor[2]-=10;
     fill(255);
   }
+  if (piece != null) {
+    drawShadow(piece, x, y);
+    piece.drawPiece(x, y);
+  }
   background(backgroundColor[0], backgroundColor[1], backgroundColor[2]);
   fill(255);
   textSize(50);
@@ -68,7 +72,7 @@ public void draw() {
     if (keyPressed) {
       if (key == 'R' || key == 'r') {
         setup();
-        if(score>highScore)
+        if (score>highScore)
           highScore = score;
         score = 0;
       }
@@ -110,6 +114,11 @@ public void draw() {
     time --;
   }
 }
+
+
+void drawShadow(Piece p, int mouseX, int mouseY) {
+}
+
 
 void highScore() {
   fill(0);
