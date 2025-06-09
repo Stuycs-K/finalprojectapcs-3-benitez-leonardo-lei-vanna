@@ -50,16 +50,19 @@ class Piece {
           int px = c * cellSize + x - cellSize * 2;
           int py = r * cellSize + y - cellSize * 2;
           int s = cellSize;
+          float cx = px + s / 2.0;
+          float cy = py + s / 2.0;
           fill(design[0], design[1], design[2]);
           stroke(0);
-          triangle(px, py, px + s/2, py, px, py + s/2);
-          triangle(px + s/2, py, px + s, py, px + s, py + s/2);
-          triangle(px + s, py + s/2, px + s, py + s, px + s/2, py + s);
-          triangle(px + s/2, py + s, px, py + s, px, py + s/2);
+          triangle(px, py, px + s, py, cx, cy);
+          triangle(px + s, py, px + s, py + s, cx, cy);
+          triangle(px + s, py + s, px, py + s, cx, cy);
+          triangle(px, py + s, px, py, cx, cy);
         }
       }
     }
   }
+
 
 
 
