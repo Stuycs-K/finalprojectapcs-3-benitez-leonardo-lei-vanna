@@ -11,13 +11,11 @@ private int y = 275;
 public Piece piece;
 private int select = -1;
 private int time = 0;
-private int timeScore = 0;
 private int[] backgroundColor = new int[] {
   (int)random(150, 255),
   (int)random(150, 255),
   (int)random(150, 255)
 };
-;
 
 public void setup() {
   size(920, 920);
@@ -73,6 +71,9 @@ public void draw() {
         score = 0;
       }
     }
+    if (score>highScore) {
+        highScore = score;
+      }
   }
   if (time>0) {
     int[] randcolors = new int[] {
@@ -106,13 +107,10 @@ public void draw() {
     }
     time --;
   }
-  if (timeScore > 0) {
-    textSize(36);
-    fill(255, 215, 0); // gold-like color
-    textAlign(CENTER, CENTER);
-    text("NEW HIGH SCORE!!", width / 2, 180);
-    timeScore--;
-    textAlign(LEFT, BASELINE); // reset alignment
+  if (score > highScore) {
+    textSize(20);
+    fill(255, 215, 0);
+    text("NEW HIGH SCORE!!", 360, 880);
   }
 }
 
@@ -145,10 +143,6 @@ public void scoreRow() {
       combos++;
       score += 80;
       time = 50;
-      if (score>highScore) {
-        highScore = score;
-        timeScore = 50;
-      }
     }
   }
 }
@@ -229,10 +223,6 @@ public void scoreCol() {
       score += 80;
       combos++;
       time = 50;
-      if (score>highScore) {
-        highScore = score;
-        timeScore = 50;
-      }
     }
   }
 }
