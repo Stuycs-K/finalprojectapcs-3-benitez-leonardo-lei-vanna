@@ -33,4 +33,7 @@ If pressed R, players can replay once they have lost and reached game over!  Wil
 
 ### 2025-06-09 - New score and animated score
 
-When the score increases, it would in intervals of 1 so it looks good. When a new score is reached, new score will show up! 
+When the score increases, it would in intervals of 1 so it looks good. When a new score is reached, new score will show up!
+
+
+I believe this document accurately reflects the contributions of my teammate - Leo
