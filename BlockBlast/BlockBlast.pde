@@ -13,7 +13,7 @@ private int y = 275;
 public Piece piece;
 private int select = -1;
 private int time = 0;
-private int timeScore;
+private boolean newhighscore = false;
 private int[] backgroundColor = new int[] {
   (int)random(150, 255),
   (int)random(150, 255),
@@ -30,7 +30,7 @@ public void setup() {
 
 
 public void draw() {
-  // You can change the colors of the background by pressing QWASZX or qwaszx. 
+  // You can change the colors of the background by pressing QWASZX or qwaszx.
   if (keyPressed) {
     if ((key == 'Q' || key == 'q')&&backgroundColor[0]<246)
       backgroundColor[0]+=10;
@@ -47,7 +47,7 @@ public void draw() {
     fill(255);
   }
   background(backgroundColor[0], backgroundColor[1], backgroundColor[2]);
-  
+
   //title and scores
   fill(255);
   textSize(50);
@@ -56,10 +56,10 @@ public void draw() {
   rect(350, 95, 200, 60);
   fill(0);
   textSize(20);
-  text("Score: "+ displayedScore,410,145);
+  text("Score: "+ displayedScore, 410, 145);
   highScore();
   gameBoard.drawBoard();
-  
+
   //piece line up
   if (piece != null) {
     piece.drawPiece(x, y);
@@ -68,29 +68,29 @@ public void draw() {
     if (pieceLineUp[i]!=null && i != select)
       pieceLineUp[i].drawPiece(350+i*170, 725);
   }
-  
+
   // Game over screen. Once no pieces can be placed, game over pops up and you can press r to restart.
   if (!gameBoard.canPlaceAny(pieceLineUp)) {
     fill(0);
     textSize(50);
     text("GAME OVER!", 330, 350);
     text("Press R to restart ", 282, 390);
-    if (keyPressed) {
-      if (key == 'R' || key == 'r') {
-        setup();
-        if (score>highScore)
-          highScore = score;
-        score = 0;
-      }
+
+    if (score > highScore) {
+      newhighscore = true;
+      highScore = score;
     }
-    
-    // animate new high score effect
-    if (score>highScore) {
-      text("NEW HIGH SCORE!!", 252, 520);
+
+    if (keyPressed && (key == 'R' || key == 'r')) {
+      score = 0;
+      displayedScore = 0;
+      setup();
+      newhighscore = false;
     }
   }
-  
-  //when you clear a col or a row, screen flashes while changing colors 
+
+
+  //when you clear a col or a row, screen flashes while changing colors
   if (time>0) {
     int[] randcolors = new int[] {
       (int)random(80, 255),
@@ -127,19 +127,15 @@ public void draw() {
     drawShadow(piece, x, y);
     piece.drawPiece(x, y);
   }
-   if(timeScore>0){
-     fill(255,0,0);
-     textSize(40);
-     rotate(radians(-15));
-   text("NEW HIGH SCORE!!", 100, 275);
-   timeScore--;
- }
- if(displayedScore<score){
-   displayedScore++;
- }
-  if(displayedHighScore<highScore){
-   displayedHighScore++;
- }
+  if (displayedScore<score) {
+    displayedScore++;
+  }
+  if (displayedHighScore<highScore) {
+    displayedHighScore++;
+  }
+  if(newhighscore){
+    text("NEW HIGH SCORE!!", 252, 520);
+  }
 }
 
 
@@ -171,7 +167,7 @@ void drawShadow(Piece p, int mouseX, int mouseY) {
 void highScore() {
   fill(0);
   textSize(20);
-  text("High Score: "+ displayedHighScore,390,120);
+  text("High Score: "+ displayedHighScore, 390, 120);
 }
 
 
@@ -186,7 +182,7 @@ public void scoreRow() {
   for (int row = 0; row<8; row++) {
     boolean full = true;
     for (int col = 0; col<8; col++) {
-      if (gameBoard.getBoard()[row][col][0] == 0 || gameBoard.getBoard()[row][col][1] == 0 || gameBoard.getBoard()[row][col][2] == 0){
+      if (gameBoard.getBoard()[row][col][0] == 0 || gameBoard.getBoard()[row][col][1] == 0 || gameBoard.getBoard()[row][col][2] == 0) {
         full = false;
       }
     }
@@ -207,7 +203,7 @@ public void scoreCol() {
   for (int col = 0; col<8; col++) {
     boolean full = true;
     for (int row = 0; row<8; row++) {
-      if (gameBoard.getBoard()[row][col][0] == 0 || gameBoard.getBoard()[row][col][1] == 0 || gameBoard.getBoard()[row][col][2] == 0){
+      if (gameBoard.getBoard()[row][col][0] == 0 || gameBoard.getBoard()[row][col][1] == 0 || gameBoard.getBoard()[row][col][2] == 0) {
         full = false;
       }
     }
