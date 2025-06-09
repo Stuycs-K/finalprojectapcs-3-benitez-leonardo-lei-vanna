@@ -84,26 +84,26 @@ public void draw() {
       (int)random(80, 255)
     };
     if (backgroundColor[0] != randcolors[0]) {
-      if (backgroundColor[0] < randcolors[0]) {
+      if (backgroundColor[0]<randcolors[0]) {
         backgroundColor[0]+=(int)random(0, 4);
-      } else if (backgroundColor[0] > randcolors[0]) {
+      } else if (backgroundColor[0]>randcolors[0]) {
         backgroundColor[0]-=(int)random(0, 4);
         ;
       }
     }
     if (backgroundColor[1] != randcolors[1]) {
-      if (backgroundColor[1] < randcolors[1]) {
+      if (backgroundColor[1]<randcolors[1]) {
         backgroundColor[1]+=(int)random(0, 6);
         ;
-      } else if (backgroundColor[1] > randcolors[1]) {
+      } else if (backgroundColor[1]>randcolors[1]) {
         backgroundColor[1]-=(int)random(0, 6);
         ;
       }
     }
     if (backgroundColor[2] != randcolors[2]) {
-      if (backgroundColor[2] < randcolors[2]) {
+      if (backgroundColor[2]<randcolors[2]) {
         backgroundColor[2]++;
-      } else if (backgroundColor[2] > randcolors[2]) {
+      } else if (backgroundColor[2]>randcolors[2]) {
         backgroundColor[2]--;
       }
     }
@@ -129,8 +129,8 @@ void drawShadow(Piece p, int mouseX, int mouseY) {
   noStroke();
   fill(pcolor[0], pcolor[1], pcolor[2], 100); // translucent fill
 
-  for (int r = 0; r < shape.length; r++) {
-    for (int c = 0; c < shape[0].length; c++) {
+  for (int r = 0; r<shape.length; r++) {
+    for (int c = 0; c<shape[0].length; c++) {
       if (shape[r][c] == 1) {
         int drawX = (boardCol+c)*cs+250;
         int drawY = (boardRow+r)*cs+175;
@@ -150,21 +150,21 @@ void highScore() {
 
 void newLineUp() {
   String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2", "V2x3", "S2x3"};
-  for (int i = 0; i < lineUpSize; i++) {
+  for (int i = 0; i<lineUpSize; i++) {
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
   }
 }
 
 public void scoreRow() {
-  for (int row = 0; row < 8; row++) {
+  for (int row = 0; row<8; row++) {
     boolean full = true;
-    for (int col = 0; col < 8; col++) {
+    for (int col = 0; col<8; col++) {
       if (gameBoard.getBoard()[row][col]==0) {
         full = false;
       }
     }
     if (full) {
-      for (int col = 0; col < 8; col++) {
+      for (int col = 0; col<8; col++) {
         gameBoard.getBoard()[row][col] = 0;
       }
       combos++;
@@ -185,7 +185,7 @@ void mouseDragged() {
 
 void mousePressed() {
   for (int i = 0; i<3; i++) {
-    if (mouseX > 250+i*150 && mouseX < 400+i*150 && mouseY >600 && mouseY <750) {
+    if (mouseX>250+i*150 && mouseX<400+i*150 && mouseY >600 && mouseY <750) {
       if (pieceLineUp[i] != null) {
         piece = pieceLineUp[i];
         select = i;
@@ -212,7 +212,7 @@ void mouseReleased() {
       score += 80*combos;
     }
     piece = null;
-    if (select >= 0 && select < 3) {
+    if (select >= 0 && select<3) {
       pieceLineUp[select] = null;
     }
     piece = null;
@@ -236,15 +236,15 @@ void mouseReleased() {
 }
 
 public void scoreCol() {
-  for (int col = 0; col < 8; col++) {//MORE MAGIC NUMBERS
+  for (int col = 0; col<8; col++) {//MORE MAGIC NUMBERS
     boolean full = true;
-    for (int row = 0; row < 8; row++) {
+    for (int row = 0; row<8; row++) {
       if (gameBoard.getBoard()[row][col] == 0) {
         full = false;
       }
     }
     if (full) {
-      for (int row = 0; row < 8; row++) {
+      for (int row = 0; row<8; row++) {
         gameBoard.getBoard()[row][col] = 0;
       }
       score += 80;
@@ -256,7 +256,7 @@ public void scoreCol() {
 
 
 public void combos() {
-  if (combos > 1) {
+  if (combos>1) {
     if (numPlaced>3) {
       combos = 0;
     }

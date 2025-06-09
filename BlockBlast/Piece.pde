@@ -35,8 +35,8 @@ class Piece {
     int[][] result = new int[3][3];
     int rowOffset = (3-small.length)/2;
     int colOffset = (3-small[0].length)/2;
-    for (int i = 0; i < small.length; i++) {
-      for (int j = 0; j < small[0].length; j++) {
+    for (int i = 0; i<small.length; i++) {
+      for (int j = 0; j<small[0].length; j++) {
         result[i+rowOffset][j+colOffset] = small[i][j];
       }
     }
@@ -44,27 +44,27 @@ class Piece {
   }
 
   public void drawPiece(int x, int y) {
-    for (int r = 0; r < shape.length; r++) {
-      for (int c = 0; c < shape[0].length; c++) {
+    for (int r = 0; r<shape.length; r++) {
+      for (int c = 0; c<shape[0].length; c++) {
         if (shape[r][c] == 1) {
-          int px = c * cellSize + x - cellSize * 2;
-          int py = r * cellSize + y - cellSize * 2;
+          int px = c*cellSize+x-cellSize*2;
+          int py = r*cellSize+y-cellSize*2;
           int s = cellSize;
-          float cx = px + s / 2.0;
-          float cy = py + s / 2.0;
+          float cx = px+s/2.0;
+          float cy = py+s/2.0;
           int baseR = design[0];
           int baseG = design[1];
           int baseB = design[2];
           stroke(0);
           strokeWeight(1);
-          fill(min(baseR + 40, 255), min(baseG + 40, 255), min(baseB + 40, 255));
-          triangle(px, py, px + s, py, cx, cy);
-          fill(max(baseR - 40, 0), max(baseG - 40, 0), max(baseB - 40, 0));
-          triangle(px + s, py, px + s, py + s, cx, cy);
-          fill(max(baseR - 60, 0), max(baseG - 60, 0), max(baseB - 60, 0));
-          triangle(px + s, py + s, px, py + s, cx, cy);
-          fill(min(baseR + 20, 255), min(baseG + 20, 255), min(baseB + 20, 255));
-          triangle(px, py + s, px, py, cx, cy);
+          fill(min(baseR+40, 255), min(baseG+40, 255), min(baseB+40, 255));
+          triangle(px, py, px+s, py, cx, cy);
+          fill(max(baseR-40, 0), max(baseG-40, 0), max(baseB-40, 0));
+          triangle(px+s, py, px+s, py+s, cx, cy);
+          fill(max(baseR-60, 0), max(baseG-60, 0), max(baseB-60, 0));
+          triangle(px+s, py+s, px, py+s, cx, cy);
+          fill(min(baseR+20, 255), min(baseG+20, 255), min(baseB+20, 255));
+          triangle(px, py+s, px, py, cx, cy);
         }
       }
     }
