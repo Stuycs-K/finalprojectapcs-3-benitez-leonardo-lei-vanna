@@ -68,12 +68,14 @@ public void draw() {
     if (keyPressed) {
       if (key == 'R' || key == 'r') {
         setup();
+        if(score>highScore)
+          highScore = score;
         score = 0;
       }
     }
     if (score>highScore) {
-        highScore = score;
-      }
+      text("NEW HIGH SCORE!!", 252, 520);
+    }
   }
   if (time>0) {
     int[] randcolors = new int[] {
@@ -106,11 +108,6 @@ public void draw() {
       }
     }
     time --;
-  }
-  if (score > highScore) {
-    textSize(20);
-    fill(255, 215, 0);
-    text("NEW HIGH SCORE!!", 360, 880);
   }
 }
 
