@@ -82,20 +82,20 @@ class Piece {
     case "T3x3":
       int[][][] tShapes = {
         { {0, 1, 0}, {1, 1, 1}, {0, 0, 0} },
-        { {0, 1, 0}, {0, 1, 1}, {0, 1, 0} },
-        { {0, 0, 0}, {1, 1, 1}, {0, 1, 0} },
-        { {0, 1, 0}, {1, 1, 0}, {0, 1, 0} }
+        { {1, 0}, {1, 1, 0}, {1, 0} },
+        { {1, 1, 1}, {0, 1, 0} },
+        { {0, 1}, {1, 1}, {0, 1} }
       };
-      return embedShape(tShapes[r]);
+      return tShapes[r];
 
     case "L3x3":
       int[][][] lShapes = {
-        { {1, 0, 0}, {1, 1, 1}, {0, 0, 0} },
-        { {0, 1, 1}, {0, 1, 0}, {0, 1, 0} },
-        { {0, 0, 0}, {1, 1, 1}, {0, 0, 1} },
-        { {0, 1, 0}, {0, 1, 0}, {1, 1, 0} }
+        { {1, 0, 0}, {1, 1, 1} },
+        { {1, 1}, {1, 0}, {1, 0} },
+        { {1, 1, 1}, {0, 0, 1} },
+        { {0, 1}, {0, 1}, {1, 1} }
       };
-      return embedShape(lShapes[r]);
+      return lShapes[r];
 
     case "L2x3":
       int[][][] l23 = {
@@ -104,7 +104,7 @@ class Piece {
         { {1, 1}, {0, 1}, {0, 1} },
         { {1, 1, 1}, {1, 0, 0} }
       };
-      return embedShape(l23[r]);
+      return l23[r];
 
     case "L2x2":
       int[][][] l22 = {
@@ -113,7 +113,7 @@ class Piece {
         { {1, 1}, {1, 0} },
         { {0, 1}, {1, 1} }
       };
-      return embedShape(l22[r]);
+      return l22[r];
 
     case "S2x3":
       int[][][] s23 = {
@@ -122,14 +122,14 @@ class Piece {
         { {0, 0, 0}, {0, 1, 1}, {1, 1, 0} },
         { {0, 1}, {1, 1}, {1, 0} }
       };
-      return embedShape(s23[r]);
+      return s23[r];
 
     case "V2x3":
       int[][][] v23 = {
         { {1, 1, 1}, {1, 1, 1} },
         { {1, 1}, {1, 1}, {1, 1} }
       };
-      return embedShape(v23[r % 2]); // only 2 variants
+      return v23[r % 2];
 
     default:
       return embedShape(new int[][] {

@@ -45,8 +45,9 @@ public void draw() {
   if (displayedHighScore < highScore)
     displayedHighScore++;
   if (newhighscore) {
-    fill(0);
-    text("NEW HIGH SCORE!!", 252, 520);
+    fill(255, 0, 0);
+    rotate(radians(-15));
+    text("NEW HIGH SCORE!!", 100, 290);
   }
 }
 
