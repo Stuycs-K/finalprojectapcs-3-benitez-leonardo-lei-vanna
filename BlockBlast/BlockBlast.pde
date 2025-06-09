@@ -27,6 +27,7 @@ public void setup() {
 
 
 public void draw() {
+  // You can change the colors of the background by pressing QWASZX or qwaszx. 
   if (keyPressed) {
     if ((key == 'Q' || key == 'q')&&backgroundColor[0]<246)
       backgroundColor[0]+=10;
@@ -43,6 +44,8 @@ public void draw() {
     fill(255);
   }
   background(backgroundColor[0], backgroundColor[1], backgroundColor[2]);
+  
+  //title and scores
   fill(255);
   textSize(50);
   text("BLOCKBLAST", 320, 75);
@@ -53,6 +56,8 @@ public void draw() {
   text("Score: "+score, 410, 145);
   highScore();
   gameBoard.drawBoard();
+  
+  //piece line up
   if (piece != null) {
     piece.drawPiece(x, y);
   }
@@ -60,6 +65,8 @@ public void draw() {
     if (pieceLineUp[i]!=null && i != select)
       pieceLineUp[i].drawPiece(350 + i*170, 725);
   }
+  
+  // Game over screen. Once no pieces can be placed, game over pops up and you can press r to restart.
   if (!gameBoard.canPlaceAny(pieceLineUp)) {
     fill(0);
     textSize(50);
@@ -73,10 +80,14 @@ public void draw() {
         score = 0;
       }
     }
+    
+    // animate new high score effect
     if (score>highScore) {
       text("NEW HIGH SCORE!!", 252, 520);
     }
   }
+  
+  //when you clear a col or a row, screen flashes while changing colors 
   if (time>0) {
     int[] randcolors = new int[] {
       (int)random(80, 255),
