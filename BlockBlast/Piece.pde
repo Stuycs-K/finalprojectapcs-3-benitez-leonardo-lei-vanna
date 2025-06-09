@@ -43,6 +43,25 @@ class Piece {
     return result;
   }
 
+  public int[] centerOffset() {
+    int[][] s = shape();
+    int centerRow = 0;
+    int centerCol = 0;
+    int count = 0;
+    for (int r = 0; r < s.length; r++) {
+      for (int c = 0; c < s[0].length; c++) {
+        if (s[r][c] == 1) {
+          centerRow += r;
+          centerCol += c;
+          count++;
+        }
+      }
+    }
+    if (count == 0) return new int[] {0, 0};
+    return new int[] {centerRow/count, centerCol/count};
+  }
+
+
   public void drawPiece(int x, int y) {
     for (int r = 0; r < shape.length; r++) {
       for (int c = 0; c < shape[0].length; c++) {
