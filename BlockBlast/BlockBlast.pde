@@ -159,16 +159,39 @@ public void scoreRow() {
   for (int row = 0; row<8; row++) {
     boolean full = true;
     for (int col = 0; col<8; col++) {
-      if (gameBoard.getBoard()[row][col]==0) {
+      if (gameBoard.getBoard()[row][col][0] == 0 || gameBoard.getBoard()[row][col][1] == 0 || gameBoard.getBoard()[row][col][2] == 0){
         full = false;
       }
     }
     if (full) {
       for (int col = 0; col<8; col++) {
-        gameBoard.getBoard()[row][col] = 0;
+        gameBoard.getBoard()[row][col][0] = 0;
+        gameBoard.getBoard()[row][col][1] = 0;
+        gameBoard.getBoard()[row][col][2] = 0;
       }
       combos++;
       score += 80;
+      time = 50;
+    }
+  }
+}
+
+public void scoreCol() {
+  for (int col = 0; col<8; col++) {
+    boolean full = true;
+    for (int row = 0; row<8; row++) {
+      if (gameBoard.getBoard()[row][col][0] == 0 || gameBoard.getBoard()[row][col][1] == 0 || gameBoard.getBoard()[row][col][2] == 0){
+        full = false;
+      }
+    }
+    if (full) {
+      for (int row = 0; row<8; row++) {
+        gameBoard.getBoard()[row][col][0] = 0;
+        gameBoard.getBoard()[row][col][1] = 0;
+        gameBoard.getBoard()[row][col][2] = 0;
+      }
+      score += 80;
+      combos++;
       time = 50;
     }
   }
@@ -232,25 +255,6 @@ void mouseReleased() {
   } else {
     piece = null;
     select = -1;
-  }
-}
-
-public void scoreCol() {
-  for (int col = 0; col<8; col++) {//MORE MAGIC NUMBERS
-    boolean full = true;
-    for (int row = 0; row<8; row++) {
-      if (gameBoard.getBoard()[row][col] == 0) {
-        full = false;
-      }
-    }
-    if (full) {
-      for (int row = 0; row<8; row++) {
-        gameBoard.getBoard()[row][col] = 0;
-      }
-      score += 80;
-      combos++;
-      time = 50;
-    }
   }
 }
 
