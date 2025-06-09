@@ -49,10 +49,10 @@ public void draw() {
   textSize(50);
   text("BLOCKBLAST", 320, 75);
   fill(255);
-  rect(350,95,200,60);
+  rect(350, 95, 200, 60);
   fill(0);
   textSize(20);
-  text("Score: "+score,410,145);
+  text("Score: "+score, 410, 145);
   highScore();
   gameBoard.drawBoard();
   if (piece != null) {
@@ -67,8 +67,8 @@ public void draw() {
     textSize(50);
     text("GAME OVER!", 330, 350);
     text("Press R to restart ", 282, 390);
-    if(keyPressed){
-      if (key == 'R' || key == 'r'){
+    if (keyPressed) {
+      if (key == 'R' || key == 'r') {
         setup();
         score = 0;
       }
@@ -106,20 +106,24 @@ public void draw() {
     }
     time --;
   }
-   if(timeScore>0){
-   text("NEW HIGH SCORE!!", 200, 200);
-   time--;
- }
+  if (timeScore > 0) {
+    textSize(36);
+    fill(255, 215, 0); // gold-like color
+    textAlign(CENTER, CENTER);
+    text("NEW HIGH SCORE!!", width / 2, 180);
+    timeScore--;
+    textAlign(LEFT, BASELINE); // reset alignment
+  }
 }
 
-void highScore(){
+void highScore() {
   fill(0);
   textSize(20);
-  text("High Score: "+highScore,390,120);
+  text("High Score: "+highScore, 390, 120);
 }
 
 
-void newLineUp(){
+void newLineUp() {
   String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2", "V2x3", "S2x3"};
   for (int i = 0; i < lineUpSize; i++) {
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
@@ -141,7 +145,7 @@ public void scoreRow() {
       combos++;
       score += 80;
       time = 50;
-      if(score>highScore){
+      if (score>highScore) {
         highScore = score;
         timeScore = 50;
       }
@@ -225,10 +229,10 @@ public void scoreCol() {
       score += 80;
       combos++;
       time = 50;
-      if(score>highScore){
-       highScore = score;
-       timeScore = 50;
-     }
+      if (score>highScore) {
+        highScore = score;
+        timeScore = 50;
+      }
     }
   }
 }

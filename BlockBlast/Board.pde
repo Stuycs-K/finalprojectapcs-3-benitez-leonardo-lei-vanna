@@ -7,12 +7,12 @@ class Board {
   public Board() {
     gameBoard = new int[rows][cols];
   }
-  
-  public int[][] getBoard(){
+
+  public int[][] getBoard() {
     return gameBoard;
   }
-  
-  public int cellSize(){
+
+  public int cellSize() {
     return cellSize;
   }
 
@@ -83,9 +83,9 @@ class Board {
   //  }
   //  int[] randArray = piece.randomColor();
   //  for(int i = 0; i < randArray[0]; i++){
-      
+
   //  }
-    
+
   //}
 
   public void drawBoard() {
@@ -100,10 +100,10 @@ class Board {
       }
     }
   }
-  
+
   boolean canPlaceAny(Piece[] pieces) {
     for (Piece piece : pieces) {
-      if(piece == null) continue;
+      if (piece == null) continue;
       for (int r = 0; r <= rows; r++) {
         for (int c = 0; c <= cols; c++) {
           if (canPlace(piece, r, c)) {
