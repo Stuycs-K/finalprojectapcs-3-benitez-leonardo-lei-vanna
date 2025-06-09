@@ -117,6 +117,11 @@ public void draw() {
 
 
 void drawShadow(Piece p, int mouseX, int mouseY) {
+  int pieceCenterOffset = 2 * gameBoard.cellSize();
+  int adjustedX = mouseX - pieceCenterOffset;
+  int adjustedY = mouseY - pieceCenterOffset;
+  int boardCol = (adjustedX - 250) / gameBoard.cellSize();
+  int boardRow = (adjustedY - 175) / gameBoard.cellSize();
 }
 
 
@@ -177,11 +182,11 @@ void mousePressed() {
 
 void mouseReleased() {
   if (piece == null) return;
-  int pieceCenterOffset = 2*gameBoard.cellSize();
-  int adjustedX = x-pieceCenterOffset;
-  int adjustedY = y-pieceCenterOffset;
-  int boardCol = (adjustedX-250)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
-  int boardRow = (adjustedY-175)/50;
+  int pieceCenterOffset = 2 * gameBoard.cellSize();
+  int adjustedX = mouseX - pieceCenterOffset;
+  int adjustedY = mouseY - pieceCenterOffset;
+  int boardCol = (adjustedX - 250) / gameBoard.cellSize();
+  int boardRow = (adjustedY - 175) / gameBoard.cellSize();
   if (gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
