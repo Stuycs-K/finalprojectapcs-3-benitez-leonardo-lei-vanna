@@ -1,4 +1,6 @@
 private int score;
+private int displayedScore = 0;
+private int displayedHighScore = 0;
 private int highScore;
 private int combos;
 private int numPlaced;
@@ -52,7 +54,7 @@ public void draw() {
   rect(350,95,200,60);
   fill(0);
   textSize(20);
-  text("Score: "+score,410,145);
+  text("Score: "+ displayedScore,410,145);
   highScore();
   gameBoard.drawBoard();
   if (piece != null) {
@@ -113,12 +115,18 @@ public void draw() {
    text("NEW HIGH SCORE!!", 100, 275);
    timeScore--;
  }
+ if(displayedScore<score){
+   displayedScore++;
+ }
+  if(displayedHighScore<highScore){
+   displayedHighScore++;
+ }
 }
 
 void highScore(){
   fill(0);
   textSize(20);
-  text("High Score: "+highScore,390,120);
+  text("High Score: "+ displayedHighScore,390,120);
 }
 
 
