@@ -8,6 +8,9 @@
 
 ~~Our group is going to recreate the amazing Block Blast Game. There will be 2 different game modes: one that starts with an empty board and another one with random pieces. filled in. There were be three random pieces generated for you to fit in the board. You will use arrow keys (or drag and drop if we have time) to move the pieces onto the board. The row gets cleared and you get points after the row is filled with blocks, just like the game. The score will be placed on the top and it will also account for combos.~~
 
+*we chose to do drag and drop instead of arrow keys since we figured out how to do it*
+*gameplay didn't work well with combos in playtesting*
+
 Our group is recreating the Block Blast Game in Processing. There will be an 8x8 board and a lineup of three randomly generated pieces for the player to place using drag-and-drop. Rows and columns clear when fully filled, increasing the score and triggering visual effects like background flashes. The score and high score will be tracked at the top. Once no pieces can be placed, the game ends and can be restarted. (new/updated)
 
 ### Expanded Description: (new/updated)
@@ -115,10 +118,17 @@ UML Diagram showing class hierarchy and interactions:
 * [x] Refined piece visuals using triangle render logic
 * [x] Improved user feedback through animation and interaction polish
 * [ ] ~~Game modes: Classic vs. Challenge (not implemented)~~
+*challenge mode block spawning didn't work well with gameplay*
 * [ ] ~~Local leaderboard (not implemented)~~
+*local leaderboard became high score since we kept it singleplayer*
 * [ ] ~~Sound effects (not implemented)~~
+*sound effects were unreliable on lab machines*
 * [ ] ~~Additional visual themes and color palette (not implemented)~~
+*visual themes were replaced by color adjuster*
 
+
+
+*this is the old development phase chart, scrapped to show how our goals progressed*
 
 # ~~Section 3: Development Phases/Stages~~
 
