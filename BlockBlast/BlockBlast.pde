@@ -11,13 +11,11 @@ private int y = 275;
 public Piece piece;
 private int select = -1;
 private int time = 0;
-private int timeScore = 0;
 private int[] backgroundColor = new int[] {
   (int)random(150, 255),
   (int)random(150, 255),
   (int)random(150, 255)
 };
-;
 
 public void setup() {
   size(920, 920);
@@ -49,10 +47,10 @@ public void draw() {
   textSize(50);
   text("BLOCKBLAST", 320, 75);
   fill(255);
-  rect(350,95,200,60);
+  rect(350, 95, 200, 60);
   fill(0);
   textSize(20);
-  text("Score: "+score,410,145);
+  text("Score: "+score, 410, 145);
   highScore();
   gameBoard.drawBoard();
   if (piece != null) {
@@ -67,11 +65,16 @@ public void draw() {
     textSize(50);
     text("GAME OVER!", 330, 350);
     text("Press R to restart ", 282, 390);
-    if(keyPressed){
-      if (key == 'R' || key == 'r'){
+    if (keyPressed) {
+      if (key == 'R' || key == 'r') {
         setup();
+        if (score>highScore)
+          highScore = score;
         score = 0;
       }
+    }
+    if (score>highScore) {
+      text("NEW HIGH SCORE!!", 252, 520);
     }
   }
   if (time>0) {
@@ -106,20 +109,46 @@ public void draw() {
     }
     time --;
   }
-   if(timeScore>0){
-   text("NEW HIGH SCORE!!", 200, 200);
-   time--;
- }
+  if (piece != null) {
+    drawShadow(piece, x, y);
+    piece.drawPiece(x, y);
+  }
 }
 
-void highScore(){
+
+void drawShadow(Piece p, int mouseX, int mouseY) {
+  int pieceCenterOffset = 2 * gameBoard.cellSize();
+  int adjustedX = mouseX - pieceCenterOffset;
+  int adjustedY = mouseY - pieceCenterOffset;
+  int boardCol = (adjustedX - 225) / gameBoard.cellSize();
+  int boardRow = (adjustedY - 150) / gameBoard.cellSize();
+  if (!gameBoard.canPlace(p, boardRow, boardCol)) return;
+  int[][] shape = p.shape();
+  int[] pcolor = p.colorID();
+  int cs = gameBoard.cellSize();
+  noStroke();
+  fill(pcolor[0], pcolor[1], pcolor[2], 100); // translucent fill
+
+  for (int r = 0; r < shape.length; r++) {
+    for (int c = 0; c < shape[0].length; c++) {
+      if (shape[r][c] == 1) {
+        int drawX = (boardCol + c) * cs + 250;
+        int drawY = (boardRow + r) * cs + 175;
+        rect(drawX, drawY, cs, cs);
+      }
+    }
+  }
+}
+
+
+void highScore() {
   fill(0);
   textSize(20);
-  text("High Score: "+highScore,390,120);
+  text("High Score: "+highScore, 390, 120);
 }
 
 
-void newLineUp(){
+void newLineUp() {
   String[] pieceTypes = {"T3x3", "L3x3", "L2x3", "L2x2", "V2x3", "S2x3"};
   for (int i = 0; i < lineUpSize; i++) {
     pieceLineUp[i] = new Piece(pieceTypes[(int)random(pieceTypes.length)]);
@@ -141,10 +170,6 @@ public void scoreRow() {
       combos++;
       score += 80;
       time = 50;
-      if(score>highScore){
-        highScore = score;
-        timeScore = 50;
-      }
     }
   }
 }
@@ -173,11 +198,11 @@ void mousePressed() {
 
 void mouseReleased() {
   if (piece == null) return;
-  int pieceCenterOffset = 2*gameBoard.cellSize();
-  int adjustedX = x-pieceCenterOffset;
-  int adjustedY = y-pieceCenterOffset;
-  int boardCol = (adjustedX-250)/50;//WE NEED TO REMOVE THESE MAGIC NUMBERS
-  int boardRow = (adjustedY-175)/50;
+  int pieceCenterOffset = 2 * gameBoard.cellSize();
+  int adjustedX = mouseX - pieceCenterOffset;
+  int adjustedY = mouseY - pieceCenterOffset;
+  int boardCol = (adjustedX - 225) / gameBoard.cellSize();
+  int boardRow = (adjustedY - 150) / gameBoard.cellSize();
   if (gameBoard.placePiece(piece, boardRow, boardCol)) {
     scoreRow();
     scoreCol();
@@ -225,10 +250,6 @@ public void scoreCol() {
       score += 80;
       combos++;
       time = 50;
-      if(score>highScore){
-       highScore = score;
-       timeScore = 50;
-     }
     }
   }
 }
