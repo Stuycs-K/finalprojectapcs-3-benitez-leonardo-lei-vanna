@@ -6,9 +6,11 @@
 
   Group Name (be creative and lean into it!) BlockBlastBananas
   Brief Project description (1 paragraph summary):
-      - Our group is going to recreate the amazing Block Blast Game. There will be 2 different game modes: one that starts with an empty board and another one with random pieces
+       ~Our group is going to recreate the amazing Block Blast Game. There will be 2 different game modes: one that starts with an empty board and another one with random pieces
       filled in. There were be three random pieces generated for you to fit in the board. You will use arrow keys (or drag and drop if we have time) to move the pieces onto the board.
-      The row gets cleared and you get points after the row is filled with blocks, just like the game. The score will be placed on the top and it will also account for combos.
+      The row gets cleared and you get points after the row is filled with blocks, just like the game. The score will be placed on the top and it will also account for combos.~
+
+      Our group is going to recreate the amazing Block Blast Game. There will be an empty board with three random pieces generated for you to fit in the board. You can drag and drop the pieces to move them onto the board. The row or column gets cleared after the row or col is filled with blocks and you can get points. The score and high score will be tracked on the top and once no pieces fit, game is over and you can play again. 
 
   Critical features (Minimum Viable Product) - What you want to have after 1.5 weeks.
      - After 1.5 weeks, our MVP would be the creation of game board, pieces, random piece generator, and an attempt to move and place blcoks.
